@@ -19,7 +19,7 @@ jobs:
       - run: mdbook build
 
       - name: Deploy
-        uses: ninanor/nina-dmh
+        uses: ninanor/nina-dmh@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main
