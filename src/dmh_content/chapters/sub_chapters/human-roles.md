@@ -4,34 +4,24 @@ Human roles in data management
 Context
 -------
 
+```mermaid
+flowchart TD;
+    A[<u>Data</u>: Mercury pressure] --> B[<u>Processing & interpretation</u>: Temperature changes]
+    B --> C[<u>Knowledge</u>: it will most likely be raining]
+    C --> |Trace & verify| A
+```
+
+
+
 Data is processed and interpreted to generate knowledge (e.g., about the weather) for end users. The knowledge can be presented as information in the form of actual data, illustrations, text or other forms of communication. In this context, an illustration is a representation of data, whereas data means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).
 
-    state "Knowledge generation" as kg {
-    state Data {
-      Data : Mercury pressure
-      Data : Wind speed and direction
-    }
 
-    state "Processing and interpretation" as PI {
-      PI : Temperature changes
-      PI : Wind changes
-    }
-
-    state Knowledge {
-      Knowledge :  It will most likely be raining
-    }
-
-    }
-
-    Data --> PI
-    PI --> Knowledge
-    Knowledge --> Data : Trace and verify
-
-**Definition:**
-
-Data here means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information, provenance, etc.; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).
+> **Definition**
+>
+> Data here means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information, provenance, etc.; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).
 
 Advanced users typically consume some type of data in order to process and interpret it, and produce new knowledge, e.g., in the form of a new dataset or other information. The datasets can be organised in different levels, such as the [WMO WIGOS definition for levels of data](http://codes.wmo.int/wmdr/_SourceOfObservation). Less advanced users apply information based on data (e.g., an illustration) to make decisions (e.g., clothing adapted to the forecast weather).
+
 
 User definitions
 ----------------
@@ -43,6 +33,28 @@ We define two types of users:
 2.  **Consumers**: Those that consume data
 
 A consumer of one level of data is typically a producer of data at the next level. A user can both consume data and produce data, or just have one of these roles (e.g., at the start/end of the production chain).
+
+```mermaid
+graph TD;
+
+subgraph Level 1 data 
+B[Produce data]
+C[Consume data]
+end
+
+subgraph Level 0 data
+A[Consume data]
+end
+
+Actor1((L0 consumer / L1 producer)) --> A
+Actor1[L0 consumer / L1 producer] --> B
+
+Actor2[L1 producer] --> C
+
+
+```
+
+
 
     package "Level 0 data" as L0 {
       (Consume data) as (CD0)
@@ -64,7 +76,7 @@ A consumer of one level of data is typically a producer of data at the next leve
 
 We split between three types of data consumers: (1) advanced, (2) intermediate, and (3) simple. These are defined below.
 
-====== Advanced consumers
+#### Advanced consumers
 
 Advanced consumers require information in the form of data and metadata (including provenance) to gain a full understanding of what data exists and how to use it (discovery and use metadata), and to automatize the generation of derived data (new knowledge generation), verification (of information), and validation of data products.
 
@@ -76,7 +88,7 @@ Specific consumers:
 
 -   Researcher (e.g., for climate projections within the "Klima i Norge 2100" research project)
 
-====== Intermediate consumers
+#### Intermediate consumers
 
 Intermediate consumers need enough information to find data and understand if it can answer their question(s) (discovery and use metadata). Also, they often want to cross reference a dataset with another dataset or metadata for inter-comparative verification of information.
 
@@ -96,7 +108,7 @@ Specific consumers:
 
 -   External partners
 
-====== Simple consumers
+#### Simple consumers
 
 Simple consumers do not have any prior knowledge about the data. Information in the form of text or illustrations is sufficient for their decision making. They do not need to understand either data or metadata, and they are most likely looking for answers to simple questions.
 

@@ -7,7 +7,7 @@
 - [Chapter 1: Introduction](dmh_content/chapters/introduction.md)
     - [Summary of data management requirements](dmh_content/chapters/sub_chapters/summary-requirements.md)
 - [Chapter 2: Structuring and documenting data](dmh_content/chapters/structure-and-documenting.md)
-    - [Human roles in data management](dmh_content/unknown/human-roles.md)
+    - [Human roles in data management](dmh_content/chapters/sub_chapters/human-roles.md)
 - [Chapter 3: Data services](dmh_content/chapters/data-services.md)
 - [Chapter 4: User portals and documentation](dmh_content/chapters/user-portals.md)
 - [Chapter 5: Data governance](dmh_content/chapters/data-governance.md)
