@@ -1,0 +1,866 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NINA&#x27;s data management handbook</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content=" ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Preliminary_comments</a></li><li class="chapter-item expanded affix "><li class="part-title">Core book</li><li class="chapter-item expanded "><a href="dmh_content/chapters/introduction.html"><strong aria-hidden="true">1.</strong> Chapter 1: Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dmh_content/chapters/sub_chapters/summary-requirements.html"><strong aria-hidden="true">1.1.</strong> Summary of data management requirements</a></li></ol></li><li class="chapter-item expanded "><a href="dmh_content/chapters/structure-and-documenting.html"><strong aria-hidden="true">2.</strong> Chapter 2: Structuring and documenting data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dmh_content/unknown/human-roles.html"><strong aria-hidden="true">2.1.</strong> Human roles in data management</a></li></ol></li><li class="chapter-item expanded "><a href="dmh_content/chapters/data-services.html"><strong aria-hidden="true">3.</strong> Chapter 3: Data services</a></li><li class="chapter-item expanded "><a href="dmh_content/chapters/user-portals.html"><strong aria-hidden="true">4.</strong> Chapter 4: User portals and documentation</a></li><li class="chapter-item expanded "><a href="dmh_content/chapters/data-governance.html"><strong aria-hidden="true">5.</strong> Chapter 5: Data governance</a></li><li class="chapter-item expanded "><a href="dmh_content/chapters/practical-guide.html"><strong aria-hidden="true">6.</strong> Chapter 6: Practical guides</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dmh_content/chapters/sub_chapters/search_context.html"><strong aria-hidden="true">6.1.</strong> Using OpenSearch</a></li><li class="chapter-item expanded "><a href="dmh_content/chapters/sub_chapters/acdd-elements.html"><strong aria-hidden="true">6.2.</strong> Creating NetCDF-CF files</a></li><li class="chapter-item expanded "><a href="dmh_content/chapters/sub_chapters/register-context.html"><strong aria-hidden="true">6.3.</strong> How to add NetCDF-CF data to thredds</a></li></ol></li><li class="chapter-item expanded "><a href="dmh_content/chapters/acknowledgements.html"><strong aria-hidden="true">7.</strong> Acknowledgements</a></li><li class="chapter-item expanded affix "><li class="part-title">Vocabulary</li><li class="chapter-item expanded "><a href="dmh_content/vocab/glossary.html"><strong aria-hidden="true">8.</strong> Glossary of terms and names</a></li><li class="chapter-item expanded "><a href="dmh_content/vocab/acronyms.html"><strong aria-hidden="true">9.</strong> List of acronyns</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="dmh_content/appendix/appendixA.html"><strong aria-hidden="true">10.</strong> Appendix A: list of referenced softwares & services</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Appendix B: Users of NINA's data</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">NINA&#x27;s data management handbook</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook/tree/master/guide" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Document data mangement handbook</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The purpose of the Data Management Handbook (<a href="dmh_content/chapters/introduction.html#dmh">DMH</a>) is threefold:</p>
+<ol>
+<li>
+<p>to provide an overview of the principles for data management to be employed;</p>
+</li>
+<li>
+<p>to help personnel identify their roles and responsibilities for good data management; and</p>
+</li>
+<li>
+<p>to provide personnel with practical guidelines for carrying out good data management.</p>
+</li>
+</ol>
+<p><a href="dmh_content/chapters/introduction.html#glossary-data-management"><em>Data management</em></a> is the term used to describe the handling of data in a systematic and cost-effective manner. The data management regime should be continuously evolving, to reflect the evolving nature of data collection. Therefore this <a href="dmh_content/chapters/introduction.html#dmh">DMH</a> is a living document that will be revised and updated from time to time in order to maintain its relevance.</p>
+<p>The <a href="dmh_content/chapters/introduction.html#dmh">DMH</a> is a strategic governing document and should be used as part of the quality framework the organisation is using.</p>
+<p>The primary focus of this <a href="dmh_content/chapters/introduction.html#dmh">DMH</a> is on the management of <a href="dmh_content/chapters/introduction.html#glossary-dynamic-geodata">dynamic geodata</a>. <a href="dmh_content/chapters/introduction.html#glossary-dynamic-geodata">Dynamic geodata</a> is weather, environment and climate-related data that changes in space and time and is thus descriptive of processes in nature. Examples are weather observations, weather forecasts, pollution (environmental toxins) in water, air and sea, information on the drift of cod eggs and salmon lice, water flow in rivers, driving conditions on the roads and the distribution of sea ice. <a href="dmh_content/chapters/introduction.html#glossary-dynamic-geodata">Dynamic geodata</a> provides important constraints for many decision-making processes and activities in society.</p>
+<p>This introduction (<a href="dmh_content/chapters/introduction.html#introduction">Introduction</a>) lays forth the background and principles for the data management regime. Chapters 2-5 describe the implementation of the main building blocks: structuring and documenting data (<a href="dmh_content/chapters/introduction.html#structuring-and-documenting">???</a>), data services (<a href="dmh_content/chapters/introduction.html#data-services">???</a>), portals and documentation aimed at users (<a href="dmh_content/chapters/introduction.html#user-portals">???</a>), and governance issues (<a href="dmh_content/chapters/introduction.html#data-governance">???</a>). Each chapter starts with a brief statement of its purpose, followed by a description of what is implemented at present, as well as the planned developments for the short-term (&lt;2 years) and expected developments for the longer term (2-5 years).</p>
+<p>Practical guidelines for carrying out good <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> are addressed in Chapter 6.</p>
+<p>The intended audience for this DMH is any personell involved in the process of making data available for the end user. This process can be viewed as a value chain that moves from the producer of the data to the data consumer (i.e., the end user). The process is further described in <a href="dmh_content/chapters/introduction.html#value-chain">The data value chain</a> (<a href="dmh_content/chapters/introduction.html#img-value-chain">???</a>).</p>
+<p>The handbook can be used in three ways:</p>
+<ol>
+<li>
+<p>Read <a href="dmh_content/chapters/introduction.html#introduction">Introduction</a> to learn about the background and principles of <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a>;</p>
+</li>
+<li>
+<p>Read Chapters 2-5 to learn about how <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> is currently implemented and how it is expected to evolve in the next few years; and</p>
+</li>
+<li>
+<p>Read <a href="dmh_content/chapters/introduction.html#practical-guides">???</a> to find how-to’s and practical guidelines.</p>
+</li>
+</ol>
+<h2 id="the-principles-of-data-management-for-dynamic-geodata"><a class="header" href="#the-principles-of-data-management-for-dynamic-geodata">The principles of data management for dynamic geodata</a></h2>
+<p>Principles of standardised data documentation, publication, sharing and preservation have been formalised in the <a href="dmh_content/chapters/introduction.html#glossary-fair-principles">FAIR</a> Guiding Principles for scientific data management and stewardship [<a href="https://www.nature.com/articles/sdata201618">RD3</a>] through a process facilitated by <a href="dmh_content/chapters/introduction.html#force11">FORCE11</a>. FAIR stands for findability, accessibility, <a href="dmh_content/chapters/introduction.html#glossary-interoperability">interoperability</a> and reusability.</p>
+<p>By following the <a href="dmh_content/chapters/introduction.html#fair">FAIR</a> principles it is easier to obtain a common approach to <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a>, or a <a href="dmh_content/chapters/introduction.html#glossary-unified-data-management">unified data management</a> model. One of the main motivations for implementing a <a href="dmh_content/chapters/introduction.html#glossary-unified-data-management">unified data management</a> is to better serve the users of the data. Primarily, this can be approached by making user needs and requirements the guide for determining what data we provide and how. For example, it will be described below how the specification of <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a> should be determined. By implementing the data management practices described here, it is expected that users will experience:</p>
+<ul>
+<li>
+<p>Ease of discovering, viewing and accessing <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a>;</p>
+</li>
+<li>
+<p>Standardised ways of accessing data, including downloading or streaming data, with reduced need for special solutions on the user side;</p>
+</li>
+<li>
+<p>Reduced storage needs;</p>
+</li>
+<li>
+<p>Simple and standard access to remote <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a> and catalogues, with own data visualisationl and analysis tools;</p>
+</li>
+<li>
+<p>Ability to compare and combine data from internal and external sources;</p>
+</li>
+<li>
+<p>Ability to apply common data transformations, like spatial, temporal and variables subsetting and reprojection, before downloading anything;</p>
+</li>
+<li>
+<p>Possibility to build specialized metadata catalogues and data portals targeting a specific user community.</p>
+</li>
+</ul>
+<h3 id="external-data-management-requirements-and-forcing-mechanisms"><a class="header" href="#external-data-management-requirements-and-forcing-mechanisms">External data management requirements and forcing mechanisms</a></h3>
+<p>Any organisation that strives to implement <a href="dmh_content/chapters/introduction.html#glossary-fair-principles">FAIR</a> data management model has to relate to external forcing mechanisms concerning <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> at several levels. At the national level, the organisation must comply with national regulations as decided by the government. Some of these are indications of expected behaviour (e.g., <a href="dmh_content/chapters/introduction.html#oecd">OECD</a> regulations) and some are implemented through a legal framework. The Norwegian government has over time promoted free and open sharing of public data. Mechanisms for how to do this are governed by the <a href="dmh_content/chapters/introduction.html#glossary-geodataloven">Geodataloven</a> (implemented as <a href="dmh_content/chapters/introduction.html#glossary-geonorge">Geonorge</a>), which is a national implementation of the European <a href="dmh_content/chapters/introduction.html#inspire">INSPIRE directive</a> (to be amended in 2019). <a href="dmh_content/chapters/introduction.html#inspire">INSPIRE</a> defines a federated multinational <a href="dmh_content/chapters/introduction.html#glossary-spatial-data-infrastructure">Spatial Data Infrastructure</a> (<a href="dmh_content/chapters/introduction.html#sdi">SDI</a>) for the European Union, similar to <a href="dmh_content/chapters/introduction.html#nsdi">NSDI</a> in the USA or <a href="dmh_content/chapters/introduction.html#unsdi">UNSDI</a> under the United Nations. The goal is to provide a standardised access to data and provide the necessary tools to be able to work with the data in a unified manner. In short, these legal frameworks require standardised documentation (at discovery and use level; these concepts are described later) and access (through specified protocols) to the data identified.</p>
+<p>Other external requirements and forcing mechanisms that are organisation-specific are provided in <a href="dmh_content/chapters/introduction.html#specialized-external-requirements">???</a>.</p>
+<h3 id="the-data-value-chain"><a class="header" href="#the-data-value-chain">The data value chain</a></h3>
+<p>The process of getting the data from the data producer to the consumer can be viewed as a value chain. An example of a data value chain is presented in <a href="dmh_content/chapters/introduction.html#img-value-chain">???</a>. Typically, data from a wide variety of providers are used in the value chain. Traditionally, the data used have been transmitted on request from one <a href="dmh_content/chapters/introduction.html#glossary-data-centre">data centre</a> to another, and used in the specific processing chains that requested the data. The focus on reuse of data in various contexts has been missing.</p>
+<p><img src="dmh_content/chapters/value_chain.png" alt="Value chain for data." /></p>
+<p>Datasets and metadata are what travels through the value chain. At the end of the <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> value chain are the data consumers.</p>
+<h3 id="dataset"><a class="header" href="#dataset">Dataset</a></h3>
+<p>A <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> is a collection of data. In the context of the <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> model, the storage mode of the <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> is irrelevant, since access mechanisms can be decoupled from the storage layer as experienced by a data consumer. Typically, a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> represents a number of variables in time and space. A more detailed definition is provided in the <a href="dmh_content/chapters/introduction.html#glossary-glossary">Glossary of Terms</a>. In order to best serve the data through <a href="dmh_content/chapters/introduction.html#web-service">web services</a>, the following principles are useful for guiding the <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> definition:</p>
+<ol>
+<li>
+<p>A <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> can be a collection of variables stored in, for example, a relational database or as flat files;</p>
+</li>
+<li>
+<p>A <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> is defined as a number of spatial and/or temporal variables;</p>
+</li>
+<li>
+<p>A <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> should be defined by the information content and not the production method;</p>
+</li>
+<li>
+<p>A good <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> does not mix <a href="dmh_content/chapters/introduction.html#glossary-feature-type">feature types</a>, i.e., trajectories and gridded data should not be present in the same <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a>.</p>
+</li>
+</ol>
+<p>Point 3 implies that the output of, e.g., a numerical model may be divided into several <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a> that are related. This is also important in order to efficiently serve the data through <a href="dmh_content/chapters/introduction.html#glossary-webservice">web services</a>. For instance, model variables defined on different vertical coordinates should be separated as <a href="dmh_content/chapters/introduction.html#glossary-linked-data">linked datasets</a>, since some <a href="dmh_content/chapters/introduction.html#ogc">OGC</a> services (e.g., <a href="dmh_content/chapters/introduction.html#wms">WMS</a>) are unable to handle mixed coordinates in the same <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a>. One important linked dataset relation is the parent-child relationship. In the numerical model example, the parent dataset would be the model simulation. This (parent) dataset encompasses all datasets created by the model simulation such as, e.g., two NetCDF-CF files (child datasets) with different information content.</p>
+<p>Most importantly, a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> should be defined to meet the consumer needs. This means that the specification of a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> should follow not only the content guidelines just listed, but also address the consumer needs for data delivery, security and preservation.</p>
+<h3 id="metadata"><a class="header" href="#metadata">Metadata</a></h3>
+<p>Metadata is a broad concept. In our <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> model the term &quot;metadata&quot; is used in several contexts, specifically the five categories that are briefly described in <a href="dmh_content/chapters/introduction.html#table-metadata">table_title</a>.</p>
+<table><caption>Brief introduction to different types of metadata.</caption><colgroup><col style="width: 100%" /></colgroup><tbody><tr class="odd"><td><p>Type</p></td></tr><tr class="even"><td><p>Purpose</p></td></tr><tr class="odd"><td><p>Description</p></td></tr><tr class="even"><td><p>Examples</p></td></tr><tr class="odd"><td><p>Discovery metadata</p></td></tr><tr class="even"><td><p>Used to find relevant data</p></td></tr><tr class="odd"><td><p>Discovery metadata are also called index metadata and are a digital version of the library index card. They describe who did what, where and when, how to access data and potential constraints on the data. They shall also link to further information on the data, such as <a href="dmh_content/chapters/introduction.html#site-metadata">site metadata</a>.</p></td></tr><tr class="even"><td><p><a href="dmh_content/chapters/introduction.html#ISO-19115">ISO 19115</a><br />
+<a href="dmh_content/chapters/introduction.html#gcmd">GCMD</a>/<a href="dmh_content/chapters/introduction.html#dif">DIF</a></p></td></tr><tr class="odd"><td><p>Use metadata</p></td></tr><tr class="even"><td><p>Used to understand data found</p></td></tr><tr class="odd"><td><p>Use metadata describes the actual content of a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> and how it is encoded. The purpose is to enable the user to understand the data without any further communication. They describe the content of variables using standardised vocabularies, units of variables, encoding of missing values, map projections, etc.</p></td></tr><tr class="even"><td><p><a href="dmh_content/chapters/introduction.html#cf">Climate and Forecast (CF) Convention</a><br />
+<a href="dmh_content/chapters/introduction.html#bufr">BUFR</a><br />
+<a href="dmh_content/chapters/introduction.html#grib">GRIB</a></p></td></tr><tr class="odd"><td><p>Site metadata</p></td></tr><tr class="even"><td><p>Used to understand data found</p></td></tr><tr class="odd"><td><p>Site metadata are used to describe the context of observational data. They describe the location of an observation, the instrumentation, procedures, etc. To a certain extent they overlap with <a href="dmh_content/chapters/introduction.html#discovery-metadata">discovery metadata</a>, but also extend discovery metadata. Site metadata can be used for observation network design. Site metadata can be considered a type of <a href="dmh_content/chapters/introduction.html#use-metadata">use metadata</a>.</p></td></tr><tr class="even"><td><p><a href="dmh_content/chapters/introduction.html#wigos">WIGOS</a><br />
+<a href="dmh_content/chapters/introduction.html#ogc-om">OGC O&amp;M</a></p></td></tr><tr class="odd"><td><p>Configuration metadata</p></td></tr><tr class="even"><td><p>Used to tune portal services for <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a> intended for data consumers (e.g., WMS)</p></td></tr><tr class="odd"><td><p>Configuration metadata are used to improve the services offered through a portal to the user community. This can, e.g., be how to best visualise a <a href="dmh_content/chapters/introduction.html#glossary-product">product</a>.</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>System metadata</p></td></tr><tr class="even"><td><p>Used to understand the technical structure of the <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> system and track changes in it</p></td></tr><tr class="odd"><td><p>System metadata covers, e.g., technical details of the storage system, <a href="dmh_content/chapters/introduction.html#glossary-web-service">web services</a>, their purpose and how they interact with other components of the <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> system, available and consumed storage, number of users and other KPI elements etc.</p></td></tr><tr class="even"><td></td></tr></tbody></table>
+<p>The tools and facilities used to manage the information for efficient discovery and use are further described in <a href="dmh_content/chapters/introduction.html#structuring-and-documenting">???</a>.</p>
+<h3 id="a-data-management-model-based-on-the-fair-principles"><a class="header" href="#a-data-management-model-based-on-the-fair-principles">A data management model based on the FAIR principles</a></h3>
+<p>The <a href="dmh_content/chapters/introduction.html#glossary-data-management">data management</a> model is built upon the following principles:</p>
+<ul>
+<li>
+<p><strong>Standardisation</strong> – compliance with established international standards;</p>
+</li>
+<li>
+<p><strong><a href="dmh_content/chapters/introduction.html#glossary-interoperability">Interoperability</a></strong> – enabling machine-to-machine interfaces including standardised documentation and encoding of data;</p>
+</li>
+<li>
+<p><strong>Integrity</strong> – ensuring that data and data access can be maintained over time, and ensuring that the consumer receives the same data at any time of request;</p>
+</li>
+<li>
+<p><strong>Traceability</strong> – documentation of the <a href="dmh_content/chapters/introduction.html#glossary-data-provenance">provenance</a> of a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a>, i.e., all actions taken to produce and maintain the <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a> and the usage of the data in downstream systems;</p>
+</li>
+<li>
+<p><strong>Modularisation</strong> – enabling replacement of one component of the system without necessitating other changes.</p>
+</li>
+</ul>
+<p>The model’s basic functions fall into three main categories:</p>
+<ol>
+<li>
+<p><strong>Documentation of data</strong> using <a href="dmh_content/chapters/introduction.html#glossary-discovery-metadata">discovery</a> and <a href="dmh_content/chapters/introduction.html#glossary-use-metadata">use metadata</a>. The documentation identifies who, what, when, where, and how, and shall make it easy for consumers to find and understand data. This requires application of information containers and utilisation of <a href="dmh_content/chapters/introduction.html#glossary-controlled-vocabulary">controlled vocabularies</a> and <a href="dmh_content/chapters/introduction.html#glossary-ontology">ontologies</a> where textual representation is required. It also covers the topic of <a href="dmh_content/chapters/introduction.html#glossary-data-provenance">data provenance</a> which is used to describe the origin and all actions done on a <a href="dmh_content/chapters/introduction.html#glossary-dataset">dataset</a>. <a href="dmh_content/chapters/introduction.html#glossary-data-provenance">Data provenance</a> is closely linked with <a href="dmh_content/chapters/introduction.html#glossary-workflow-management">workflow management</a>. Furthermore, it covers the relationship between <a href="dmh_content/chapters/introduction.html#glossary-dataset">datasets</a>. Application of <a href="dmh_content/chapters/introduction.html#glossary-ontology">ontologies</a> in data documentation is closely linked to the concept of <a href="dmh_content/chapters/introduction.html#glossary-linked-data">linked data</a>.</p>
+</li>
+<li>
+<p><strong>Publication and sharing of data</strong> focuses on making data accessible to consumers internally and externally. Application of standardised approaches is vital, along with cost effective solutions that are sustainable. Direct integration of data in applications for analysis through data streaming minimises the complexity and overhead in dissemination solutions. This category also covers persistent identifiers for data.</p>
+</li>
+<li>
+<p><strong>Preservation of data</strong> includes short and long term management of data, which secures access and availability throughout the lifespan of the data. Good solutions in this area depend on expected and actual usage of the data. Preservation of data includes the concept of data life cycle, i.e., the documented flow of data from initial storage through to obsolescence and permanent archiving (or deletion) and preserving the metadata for the same data (even after deleting).</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="summary-of-data-management-requirements"><a class="header" href="#summary-of-data-management-requirements">Summary of data management requirements</a></h1>
+<p>The data management regime described in this DMH follows the Arctic Data centre model and shall ensure that:</p>
+<ol>
+<li>
+<p>There are relevant metadata for all datasets, and both data and metadata are available in a form and in such a way that they can be utilised by both humans and machines</p>
+<ul>
+<li>
+<p>There are sufficient metadata for each dataset for both discovery and use purposes</p>
+</li>
+<li>
+<p>Discovery metadata are indexed and can be retrieved from available services in a standard way and with standard protocols</p>
+</li>
+<li>
+<p>There are interfaces for discovery, visualisation and download, as well as portals for human access, that operate seamlessly across institutions</p>
+</li>
+<li>
+<p>The data are described in a relevant, standardised and managed vocabulary that supports machine-machine interfaces</p>
+</li>
+<li>
+<p>Datasets have attached a unique and permanent identifier that enables traceability</p>
+</li>
+<li>
+<p>Datasets have licensing that ensures free use and reuse wherever possible</p>
+</li>
+<li>
+<p>Datasets are available for download in a standard form according to the FAIR guiding principles and through standard protocols that are accepted and utilised in the user environment</p>
+</li>
+<li>
+<p>There are authentication and authorisation mechanisms that ensure access control to data with restrictions, and that are compatible with and coupled to relevant public authentication solutions (FEIDE, eduGAIN, Google, etc.)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>There is an organisation that provides for the management of each dataset throughout its lifetime (life cycle management)</p>
+<ul>
+<li>
+<p>There is documentation that describes physical storage, lifetime of each dataset, degree of storage redundancy, metadata consistency methods, how dataset versioning is implemented and unique IDs to ensure traceability</p>
+</li>
+<li>
+<p>The organisation provides seamless access to data from distributed data centres through various portals</p>
+</li>
+<li>
+<p>The above and a business model at dataset level are described in a Data Management Plan (DMP)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>There are services or tools that provide the following functionalities on the datasets:</p>
+<ul>
+<li>
+<p>Transformations</p>
+<ul>
+<li>
+<p>Subsetting</p>
+</li>
+<li>
+<p>Slicing of gridded datasets to points, sections, profiles</p>
+</li>
+<li>
+<p>Reprojection</p>
+</li>
+<li>
+<p>Resampling</p>
+</li>
+<li>
+<p>Reformatting</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Visualisation (time series, mapping services, etc.)</p>
+</li>
+<li>
+<p>Aggregation</p>
+</li>
+<li>
+<p>Upload of new datasets (including enabling and configuring data access services)</p>
+</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="structuring-and-documenting-data-for-efficient-discovery-and-use"><a class="header" href="#structuring-and-documenting-data-for-efficient-discovery-and-use">Structuring and Documenting Data for Efficient Discovery and Use</a></h1>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>In order to properly find, understand and use geophysical data, standardised encoding and documentation are required, i.e., <a href="dmh_content/chapters/structure-and-documenting.html#metadata">metadata</a>.</p>
+<p>Both <a href="dmh_content/chapters/structure-and-documenting.html#discovery-metadata">discovery metadata</a> and <a href="dmh_content/chapters/structure-and-documenting.html#use-metadata">use metadata</a> can be embedded in the files produced for a <a href="dmh_content/chapters/structure-and-documenting.html#glossary-dataset">dataset</a> through utilisation of self-explaining file formats. If properly done by the <a href="dmh_content/chapters/structure-and-documenting.html#data-producers">data producer</a>, publication and preservation of data through services is simplified and can be automated.</p>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>An essential prerequisite for structuring and documenting data is the specification of the <a href="dmh_content/chapters/structure-and-documenting.html#glossary-dataset">dataset(s)</a>, cf. <a href="dmh_content/chapters/structure-and-documenting.html#dataset">???</a>. The <a href="dmh_content/chapters/structure-and-documenting.html#glossary-dataset">dataset</a> is the basic building block of our <a href="dmh_content/chapters/structure-and-documenting.html#fair-data-management-model">data management model</a>; all the documentation and services described in this <a href="dmh_content/chapters/structure-and-documenting.html#dmh">DMH</a> are built on <a href="dmh_content/chapters/structure-and-documenting.html#glossary-dataset">datasets</a>. The dataset specification is the first step in structuring one’s data for efficient management, and it is mandatory.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="human-roles-in-data-management"><a class="header" href="#human-roles-in-data-management">Human roles in data management</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-services"><a class="header" href="#data-services">Data Services</a></h1>
+<h2 id="purpose-1"><a class="header" href="#purpose-1">Purpose</a></h2>
+<p>The purpose of this chapter is to describe services that benefit from the standardisation performed in the previous step. The information structures described in the previous chapter pave the way for efficient data discovery and use through tools and automated services. Implementation of the services must be in line with the institute’s delivery architecture.</p>
+<p>Data services include:</p>
+<ol>
+<li>
+<p>Data ingestion, storing the data in the proper locations for long term preservation and sharing;</p>
+</li>
+<li>
+<p>Data cataloging, extracting the relevant information for proper discovery of the data;</p>
+</li>
+<li>
+<p>Configuration of visualisation and data publication services (e.g., OGC WMS and OpeNDAP).</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-portals-and-documentation"><a class="header" href="#user-portals-and-documentation">User Portals and Documentation</a></h1>
+<h2 id="purpose-2"><a class="header" href="#purpose-2">Purpose</a></h2>
+<p>The purpose of this chapter is to describe the human interfaces which data consumers would use to navigate data and the related services. A portal is an entry point for data consumers, enabling them to discover and search for datasets and services, and providing sufficient documentation and guidance to ensure that they are able to serve themselves using the interactive and machine interfaces offered.</p>
+<p>Here, we can distinguish between a general portal for all publishable datasets from the institution and targeted portals that offer a focused selection of data, which may include external datasets. Targeted portals cater to specific user groups and may have a limited lifetime, but also can be long-term commitments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-governance"><a class="header" href="#data-governance">Data Governance</a></h1>
+<h2 id="purpose-3"><a class="header" href="#purpose-3">Purpose</a></h2>
+<p>This chapter describes how we organise and steer data management activities in order to ensure that:</p>
+<ol>
+<li>
+<p>The guidelines described above are implemented throughout the organisation;</p>
+</li>
+<li>
+<p>Our data management practices are in line with and contribute to the institute’s strategic aims;</p>
+</li>
+<li>
+<p>Our data management regime is subject to review, analysis and revision in a timely manner.</p>
+</li>
+</ol>
+<p>These higher level aspects of data management are often referred to as data governance. A useful definition is:</p>
+<p><em>&quot;Data governance … is the overall management of the availability, usability, integrity and security of data used in an enterprise. A sound data governance program includes a governing body or council, a defined set of procedures and a plan to execute those procedures.&quot;</em></p>
+<p>In this chapter we address many aspects of this definition, but a full description of data governance touches on management structures that are beyond the scope of this handbook.</p>
+<h2 id="data-life-cycle-management"><a class="header" href="#data-life-cycle-management">Data life cycle management</a></h2>
+<p><a href="dmh_content/chapters/data-governance.html#glossary-data-life-cycle-management">Data life cycle management</a> is steered by documentation describing how data generated or used in an activity will be handled throughout the lifetime of the activity and after the activity has been completed. This is living documentation that follows the activity and specifies what kind of data will be generated or acquired, how the data will be described, where the data will be stored, whether and how the data can be shared, and how the data will be retired (archived or deleted). The purpose of life cycle management is to safeguard the data, not just during their “active” period but also for future reuse of the data, and to facilitate cost-effective data handling.</p>
+<p>This DMH recommends the following concepts of <a href="dmh_content/chapters/data-governance.html#data-life-cycle-managment">life cycle management</a> to be implemented for the institution:</p>
+<ul>
+<li>
+<p>An institution specific Data Management Handbook (DMH) based on a common general template;</p>
+</li>
+<li>
+<p>Extended <a href="dmh_content/chapters/data-governance.html#glossary-discovery-metadata">discovery metadata</a> for data in internal production chains (these are metadata elements that provide the necessary information for life cycle management just described); and</p>
+</li>
+<li>
+<p>A <a href="dmh_content/chapters/data-governance.html#dmp">Data Management Plan</a> (DMP) document (a DMP is expected for datasets produced in external projects, but may also be useful for internal datasets, as a supplement to the extended discovery metadata).</p>
+</li>
+</ul>
+<p>The goal is that life cycle management information shall be readily available for every dataset managed by the institute. How these concepts are implemented are described in the subsections below.</p>
+<h3 id="data-management-plan"><a class="header" href="#data-management-plan">Data Management Plan</a></h3>
+<p>A Data Management Plan (<a href="dmh_content/chapters/data-governance.html#dmp">DMP</a>) is a document that describes textually how the <a href="dmh_content/chapters/data-governance.html#glossary-data-life-cycle-management">data life cycle management</a> will be carried out for <a href="dmh_content/chapters/data-governance.html#glossary-dataset">datasets</a> used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.</p>
+<p>Currently, agencies funding R&amp;D (such as <a href="dmh_content/chapters/data-governance.html#nfr">NFR</a> and the EU) do not strictly require a DMP from the start of any project. However, for projects in the geosciences, data management is an issue that must be addressed, and the agencies strongly recommend a DMP solution. For example, NFR publishes <a href="https://www.forskningsradet.no/en/Adviser-research-policy/open-science/open-access-to-research-data/">guidelines</a> for the contents of a DMP, including links to tools (templates and online services); these guidelines are recommended for any data management project or activity and will in time become a requirement according to <a href="dmh_content/chapters/data-governance.html#nfr">NFR</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="practical-guides"><a class="header" href="#practical-guides">Practical Guides</a></h1>
+<p>This chapter includes how-to’s and other practical guidance for data producers.</p>
+<h2 id="create-a-data-management-plan-dmp"><a class="header" href="#create-a-data-management-plan-dmp">Create a Data Management Plan (DMP)</a></h2>
+<p>The funding agency of your project will usually provide requirements, guidelines or a template for the DMP. If this is not the case or for datasets that are not part of a project use the template provided by your institution or the template based on the <a href="https://www.forskningsradet.no/contentassets/e4cd6d2c23cf49d4989bb10c5eea087a/se_rdm_practical_guide_final.pdf">recommendations by Science Europe</a>.</p>
+<h3 id="using-easydmp"><a class="header" href="#using-easydmp">Using easyDMP</a></h3>
+<ol>
+<li>
+<p>Log in to <a href="https://easydmp.sigma2.no/login/">easyDMP</a>, use <strong>Dataporten</strong> if your institution supports that, otherwise pick one of the other login methods.</p>
+</li>
+<li>
+<p>Click on <strong>+ Create a new plan</strong> and pick a template</p>
+</li>
+<li>
+<p>By using the <strong>Summary</strong> button from page two and on, you can get an overview of all the questions.</p>
+</li>
+</ol>
+<h3 id="publishing-the-plan"><a class="header" href="#publishing-the-plan">Publishing the plan</a></h3>
+<p>Currently you can use the <em>export</em> function in easyDMP to download an HTML or PDF version of the DMP and use it further. This might change if &quot;<a href="https://github.com/hmpf/easydmp/issues/226">Hosted DMP</a>&quot; gets implemented.</p>
+<h2 id="submitting-data-as-netcdf-cf"><a class="header" href="#submitting-data-as-netcdf-cf">Submitting data as NetCDF-CF</a></h2>
+<h3 id="workflow"><a class="header" href="#workflow">Workflow</a></h3>
+<ol>
+<li>
+<p>Define your dataset (see <a href="dmh_content/chapters/practical-guide.html#glossary-dataset">dataset</a> and <a href="dmh_content/chapters/practical-guide.html#dataset">???</a>)</p>
+</li>
+<li>
+<p>Create a NetCDF-CF file (see <a href="dmh_content/chapters/practical-guide.html#data-as-netcdf-cf">Creating NetCDF-CF files</a>)</p>
+<ul>
+<li>
+<p>Add discovery metadata as global attributes (see <a href="dmh_content/chapters/practical-guide.html#acdd-elements">global attibutes section</a>)</p>
+</li>
+<li>
+<p>Add variables and <a href="dmh_content/chapters/practical-guide.html#glossary-use-metadata">use metadata</a> following the <a href="https://cfconventions.org/">CF conventions</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Store the NetCDF-CF file in a suitable location, and distribute it via thredds or another dap server (see, e.g., <a href="dmh_content/chapters/practical-guide.html#add-to-thredds">How to add NetCDF-CF data to thredds</a>)</p>
+</li>
+<li>
+<p>Register your dataset in a searchable catalog (see <a href="dmh_content/chapters/practical-guide.html#register-dataset-in-catalog">How to register your data in the catalog service</a>)</p>
+<ul>
+<li>
+<p>Test that your dataset contains the necessary discovery metadata and create an MMD xml file (see <a href="dmh_content/chapters/practical-guide.html#local-mmd-xml-generation">Generation of MMD xml file from NetCDF-CF</a>)</p>
+</li>
+<li>
+<p>Test the MMD xml file (see <a href="dmh_content/chapters/practical-guide.html#test-mmd-file">Test the MMD xml file</a>)</p>
+</li>
+<li>
+<p>Push the MMD xml file to the discovery metadata catalog (see <a href="dmh_content/chapters/practical-guide.html#push-mmd-file">Push the MMD xml file to the discovery metadata catalog</a>)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="creating-netcdf-cf-files"><a class="header" href="#creating-netcdf-cf-files">Creating NetCDF-CF files</a></h3>
+<p>By documenting and formatting your data using <a href="dmh_content/chapters/practical-guide.html#netcdf">NetCDF</a> following the <a href="https://cfconventions.org/">CF conventions</a> and the <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute Convention for Data Discovery (ACDD)</a>, <a href="dmh_content/chapters/practical-guide.html#mmd">MMD</a> files can be automatically generated from the <a href="dmh_content/chapters/practical-guide.html#netcdf">NetCDF</a> files. The <a href="dmh_content/chapters/practical-guide.html#cf">CF conventions</a> is a controlled vocabulary providing a definitive description of what the data in each variable represents, and the spatial and temporal properties of the data. The <a href="dmh_content/chapters/practical-guide.html#acdd">ACDD</a> vocabulary describes attributes recommended for describing a <a href="dmh_content/chapters/practical-guide.html#netcdf">NetCDF</a> dataset to data discovery systems. See, e.g., <a href="https://unidata.github.io/netcdf4-python/">netCDF4-python docs</a>, or <a href="http://xarray.pydata.org/en/stable/user-guide/io.html">xarray docs</a> for documentation about how to create netCDF files.</p>
+<p>The ACDD recommendations should be followed in order to properly document your netCDF-CF files. The below tables summarize required and recommended ACDD and some additional attributes that are needed to properly populate a discovery metadata catalog which fulfills the requirements of international standards (e.g., GCMD/DIF, the INSPIRE and WMO profiles of ISO19115, etc.).</p>
+<h4 id="notes"><a class="header" href="#notes">Notes</a></h4>
+<p><strong>Keywords</strong> describe the content of your dataset following a given vocabulary. You may use any vocabularies to define your keywords, but a link to the keyword definitions should be provided in the ``keywords_vocabulary`` attribute. This attribute provides information about the vocabulary defining the keywords used in the ``keywords`` attribute. Example:</p>
+<p>:keywords_vocabulary = &quot;GCMDSK:GCMD Science Keywords:https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords, GEMET:INSPIRE Themes:http://inspire.ec.europa.eu/theme, NORTHEMES:GeoNorge Themes:https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling&quot; ;</p>
+<p>Note that the <strong>GCMDSK</strong>, <strong>GEMET</strong> and <strong>NORTHEMES</strong> vocabularies are required for indexing in <a href="https://adc.met.no/">S-ENDA</a> and <a href="https://www.geonorge.no/en/">Geonorge</a>. You may find appropriate keywords at the following links:</p>
+<ul>
+<li>
+<p><a href="https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords">GCMDSK</a></p>
+</li>
+<li>
+<p><a href="http://inspire.ec.europa.eu/theme">GEMET</a></p>
+</li>
+<li>
+<p><a href="https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling">NORTHEMES</a></p>
+</li>
+</ul>
+<p>The keywords should be provided by the ``keywords`` attribute as a comma separated list with a short name defining the vocabulary used, followed by the actual keyword, i.e., ``short_name:keyword``. Example:</p>
+<p>:keywords = &quot;GCMDSK:Earth Science &gt; Atmosphere &gt; Atmospheric radiation, GEMET:Meteorological geographical features, GEMET:Atmospheric conditions, NORTHEMES:Weather and climate&quot; ;</p>
+<p>See <a href="https://adc.met.no/node/96">https://adc.met.no/node/96</a> for more information about how to define the ACDD keywords.</p>
+<p>A data <strong>license</strong> provides information about any restrictions on the use of the dataset. To support a linked data approach, the ``license`` element should be supported by a ``license_resource`` element, providing a link to the license definition. Example:</p>
+<p>:license = &quot;CC-BY-4.0&quot; ;<br />
+:license_resource = &quot;http://spdx.org/licenses/CC-BY-4.0&quot; ;</p>
+<h4 id="list-of-attributes"><a class="header" href="#list-of-attributes">List of Attributes</a></h4>
+<p>This section provides lists of ACDD elements that are required and recommended, as well as some extra elements that are needed to fully support our data management needs. The right columns of these tables provide the <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MET Norway Metadata Specification (MMD)</a> fields that map to the ACDD (and our extension to ACDD) elements. Please refer to <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MMD</a> for definitions of these elements, as well as controlled vocabularies that should be used. Note that the below tables are automatically generated - check <a href="https://github.com/metno/py-mmd-tools/blob/master/py_mmd_tools/mmd_elements.yaml">https://github.com/metno/py-mmd-tools/blob/master/py_mmd_tools/mmd_elements.yaml</a> if anything is unclear.</p>
+<p>In order to check your netCDF-CF files, and to create MMD xml files, you can use the nc2mmd.py script in the <a href="https://github.com/metno/py-mmd-tools">py-mmd-tools</a> Python package.</p>
+<p>The following ACDD elements are required:</p>
+<table><colgroup><col style="width: 33%" /><col style="width: 33%" /><col style="width: 33%" /></colgroup><tbody><tr class="odd"><td><p><strong>ACDD Attribute</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>id</p></td><td><p>metadata_identifier</p></td><td><p>Required, and should be UUID. No repetition allowed.</p></td></tr><tr class="odd"><td><p>naming_authority</p></td><td><p>metadata_identifier</p></td><td><p>Required. We recommend using reverse-DNS naming. No repetition allowed.</p></td></tr><tr class="even"><td><p>date_created</p></td><td><p>last_metadata_update&gt;update&gt;datetime</p></td><td><p>Format as ISO8601.</p></td></tr><tr class="odd"><td><p>title</p></td><td><p>title&gt;title</p></td><td><p>Use ACDD extension "title_no" for Norwegian translation.</p></td></tr><tr class="even"><td><p>summary</p></td><td><p>abstract&gt;abstract</p></td><td><p>Use ACDD extension "summary_no" for Norwegian translation.</p></td></tr><tr class="odd"><td><p>time_coverage_start</p></td><td><p>temporal_extent&gt;start_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>geospatial_lat_max</p></td><td><p>geographic_extent&gt;rectangle&gt;north</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>geospatial_lat_min</p></td><td><p>geographic_extent&gt;rectangle&gt;south</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>geospatial_lon_max</p></td><td><p>geographic_extent&gt;rectangle&gt;east</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>geospatial_lon_min</p></td><td><p>geographic_extent&gt;rectangle&gt;west</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>keywords</p></td><td><p>keywords&gt;keyword</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>keywords_vocabulary</p></td><td><p>keywords&gt;vocabulary</p></td><td><p>Comma separated list.</p></td></tr></tbody></table>
+<p>The following ACDD elements are (highly) recommended:</p>
+<table><colgroup><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /></colgroup><tbody><tr class="odd"><td><p><strong>ACDD Attribute</strong></p></td><td><p><strong>Default</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>date_metadata_modified</p></td><td></td><td><p>last_metadata_update&gt;update&gt;datetime</p></td><td><p>Format as ISO8601. Comma separated list if more than once.</p></td></tr><tr class="odd"><td><p>time_coverage_end</p></td><td></td><td><p>temporal_extent&gt;end_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>geospatial_bounds</p></td><td></td><td><p>geographic_extent&gt;polygon</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>processing_level</p></td><td></td><td><p>operational_status</p></td><td><p>No repetition allowed. See the MMD docs for valid keywords.</p></td></tr><tr class="even"><td><p>license</p></td><td></td><td><p>use_constraint&gt;identifier</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>creator_role</p></td><td><p>Investigator</p></td><td><p>personnel&gt;role</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>contributor_role</p></td><td><p>Investigator</p></td><td><p>personnel&gt;role</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>creator_name</p></td><td><p>Not available</p></td><td><p>personnel&gt;name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>contributor_name</p></td><td><p>Not available</p></td><td><p>personnel&gt;name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>creator_email</p></td><td><p>Not available</p></td><td><p>personnel&gt;email</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>creator_institution</p></td><td><p>Not available</p></td><td><p>personnel&gt;organisation</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>institution</p></td><td></td><td><p>data_center&gt;data_center_name&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>publisher_url</p></td><td></td><td><p>data_center&gt;data_center_url</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>project</p></td><td></td><td><p>project&gt;long_name</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="even"><td><p>platform</p></td><td></td><td><p>platform&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>platform_vocabulary</p></td><td></td><td><p>platform&gt;resource</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>instrument</p></td><td></td><td><p>platform&gt;instrument&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>instrument_vocabulary</p></td><td></td><td><p>platform&gt;instrument&gt;resource</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>source</p></td><td></td><td><p>activity_type</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="odd"><td><p>creator_name</p></td><td></td><td><p>dataset_citation&gt;author</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>date_created</p></td><td></td><td><p>dataset_citation&gt;publication_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>title</p></td><td></td><td><p>dataset_citation&gt;title</p></td><td></td></tr><tr class="even"><td><p>publisher_name</p></td><td></td><td><p>dataset_citation&gt;publisher</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>metadata_link</p></td><td></td><td><p>dataset_citation&gt;url</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>references</p></td><td></td><td><p>dataset_citation&gt;other</p></td><td><p>Comma separated list.</p></td></tr></tbody></table>
+<p>The following elements are ACDD extensions that are needed to improve (meta)data interoperability. Please refer to the documentation of <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MMD</a> for more details:</p>
+<table><colgroup><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /></colgroup><tbody><tr class="odd"><td><p><strong>Necessary non-ACDD Attribute</strong></p></td><td><p><strong>Default</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>spatial_representation</p></td><td></td><td><p>spatial_representation</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>alternate_identifier</p></td><td></td><td><p>alternate_identifier&gt;alternate_identifier</p></td><td><p>Alternative identifier for the dataset (but not DOI). Comma separated list.</p></td></tr><tr class="even"><td><p>alternate_identifier_type</p></td><td></td><td><p>alternate_identifier&gt;type</p></td><td><p>Identification of the type of identifier used. Comma separated list.</p></td></tr><tr class="odd"><td><p>date_metadata_modified_type</p></td><td></td><td><p>last_metadata_update&gt;update&gt;type</p></td><td><p>E.g., major or minor modification. Comma separated list.</p></td></tr><tr class="even"><td><p>date_created_type</p></td><td><p>Created</p></td><td><p>last_metadata_update&gt;update&gt;type</p></td><td></td></tr><tr class="odd"><td><p>title_no</p></td><td></td><td><p>title&gt;title</p></td><td><p>Used for Norwegian version of the title.</p></td></tr><tr class="even"><td><p>title_lang</p></td><td><p>en</p></td><td><p>title&gt;lang</p></td><td><p>ISO language code.</p></td></tr><tr class="odd"><td><p>summary_no</p></td><td></td><td><p>abstract&gt;abstract</p></td><td><p>Used for Norwegian version of the abstract.</p></td></tr><tr class="even"><td><p>summary_lang</p></td><td><p>en</p></td><td><p>abstract&gt;lang</p></td><td><p>ISO language code.</p></td></tr><tr class="odd"><td><p>dataset_production_status</p></td><td><p>Complete</p></td><td><p>dataset_production_status</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>access_constraint</p></td><td></td><td><p>access_constraint</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>license_resource</p></td><td></td><td><p>use_constraint&gt;resource</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>contributor_email</p></td><td><p>Not available</p></td><td><p>personnel&gt;email</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>contributor_institution</p></td><td></td><td><p>personnel&gt;organisation</p></td><td></td></tr><tr class="even"><td><p>contributor_organisation</p></td><td></td><td><p>personnel&gt;organisation</p></td><td></td></tr><tr class="odd"><td><p>institution_short_name</p></td><td></td><td><p>data_center&gt;data_center_name&gt;short_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>related_dataset_id</p></td><td></td><td><p>related_dataset&gt;related_dataset</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>related_dataset_relation_type</p></td><td></td><td><p>related_dataset&gt;relation_type</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>iso_topic_category</p></td><td></td><td><p>iso_topic_category</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>project_short_name</p></td><td></td><td><p>project&gt;short_name</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="even"><td><p>quality_control</p></td><td></td><td><p>quality_control</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>doi</p></td><td></td><td><p>dataset_citation&gt;doi</p></td><td></td></tr></tbody></table>
+<h3 id="how-to-add-netcdf-cf-data-to-thredds"><a class="header" href="#how-to-add-netcdf-cf-data-to-thredds">How to add NetCDF-CF data to thredds</a></h3>
+<p>This section should contain institution specific information about how to add netcdf-cf files to thredds.</p>
+<h3 id="how-to-register-your-data-in-the-catalog-service"><a class="header" href="#how-to-register-your-data-in-the-catalog-service">How to register your data in the catalog service</a></h3>
+<p>In order to make a dataset findable, a dataset must be registered in a searchable catalog with appropriate metadata. The (meta)data catalog is indexed and exposed through <a href="https://en.wikipedia.org/wiki/Catalogue_Service_for_the_Web">CSW</a>.</p>
+<p>The following needs to be done:</p>
+<ol>
+<li>
+<p>Generate an MMD xml file from your NetCDF-CF file (see <a href="dmh_content/chapters/practical-guide.html#local-mmd-xml-generation">Generation of MMD xml file from NetCDF-CF</a>)</p>
+</li>
+<li>
+<p>Test your mmd xml metadata file (see <a href="dmh_content/chapters/practical-guide.html#test-mmd-file">Test the MMD xml file</a>)</p>
+</li>
+<li>
+<p>Push the MMD xml file to the discovery metadata catalog (see <a href="dmh_content/chapters/practical-guide.html#push-mmd-file">Push the MMD xml file to the discovery metadata catalog</a>)</p>
+</li>
+</ol>
+<h4 id="generation-of-mmd-xml-file-from-netcdf-cf"><a class="header" href="#generation-of-mmd-xml-file-from-netcdf-cf">Generation of MMD xml file from NetCDF-CF</a></h4>
+<p>Clone the <a href="https://github.com/metno/py-mmd-tools.git">py-mmd-tools</a> repo and make a local installation with eg <code>pip install .</code>. This should bring in all needed dependencies (we recommend to use a virtual environment).</p>
+<p>Then, generate your mmd xml file as follows:</p>
+<p>cd script ./nc2mmd.py -i &lt;your netcdf file&gt; -o &lt;your xml output directory&gt;&lt;/programlisting&gt;</p>
+<p>See <code>./nc2mmd.py --help</code> for documentation and extra options.</p>
+<p>You will find Extensible Stylesheet Language Transformations (XSLT) documents in the <a href="https://github.com/metno/mmd.git">MMD</a> repository. These can be used to translate the metadata documents from MMD to other vocabularies, such as ISO19115:</p>
+<p>./bin/convert_from_mmd -i &lt;your mmd xml file&gt; -f iso -o &lt;your iso output file name&gt;&lt;/programlisting&gt;</p>
+<p>Note that the discovery metadata catalog ingestion tool will take care of translations from MMD, so you don’t need to worry about that unless you have special interest in it.</p>
+<h4 id="test-the-mmd-xml-file"><a class="header" href="#test-the-mmd-xml-file">Test the MMD xml file</a></h4>
+<p>Install the <a href="https://github.com/metno/discovery-metadata-catalog-ingestor">dmci app</a>, and run the usage example locally. This will return an error message if anything is wrong with your MMD file.</p>
+<h4 id="push-the-mmd-xml-file-to-the-discovery-metadata-catalog"><a class="header" href="#push-the-mmd-xml-file-to-the-discovery-metadata-catalog">Push the MMD xml file to the discovery metadata catalog</a></h4>
+<p>For development and verification purposes:</p>
+<p>curl --data-binary &quot;@&lt;PATH_TO_MMD_FILE&gt;&quot; https://dmci-*.s-enda.k8s.met.no/v1/insert&lt;/programlisting&gt;</p>
+<p>where <code>*</code> should be either dev or staging.</p>
+<p>For production (the official catalog):</p>
+<p>curl --data-binary &quot;@&lt;PATH_TO_MMD_FILE&gt;&quot; https://dmci.s-enda.k8s.met.no/v1/insert&lt;/programlisting&gt;</p>
+<h2 id="searching-data-in-the-catalog-service-for-the-web-csw-interface"><a class="header" href="#searching-data-in-the-catalog-service-for-the-web-csw-interface">Searching data in the Catalog Service for the Web (CSW) interface</a></h2>
+<h3 id="using-opensearch"><a class="header" href="#using-opensearch">Using OpenSearch</a></h3>
+<h4 id="local-test-machines"><a class="header" href="#local-test-machines">Local test machines</a></h4>
+<p>The <a href="https://github.com/metno/vagrant-s-enda"><code>vagrant-s-enda</code></a> environment found at <a href="https://github.com/metno/vagrant-s-enda">vagrant-s-enda</a> provides OpenSearch support through <a href="https://github.com/geopython/pycsw">PyCSW</a>. To test OpenSearch via the browser, start the <code>vagrant-s-enda</code> vm (<code>vagrant up</code>) and go to the following address:</p>
+<ul>
+<li><code>http://10.10.10.10/pycsw/csw.py?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetCapabilities</code></li>
+</ul>
+<h4 id="online-catalog"><a class="header" href="#online-catalog">Online catalog</a></h4>
+<p>For searching the online metadata catalog, the base url (<code>http://10.10.10.10/</code>) must be replaced by <code>https://csw.s-enda.k8s.met.no/</code>:</p>
+<ul>
+<li><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></li>
+</ul>
+<h4 id="opensearch-examples"><a class="header" href="#opensearch-examples">OpenSearch examples</a></h4>
+<p>To find all datasets in the catalog:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></li>
+</ul>
+<p>Or datasets within a given time span:</p>
+<ul>
+<li><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;time=2000-01-01/2020-09-01</code></li>
+</ul>
+<p>Or datasets within a geographical domain (defined as a box with parameters min_longitude, min_latitude, max_longitude, max_latitude):</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;bbox=0,40,10,60</code></li>
+</ul>
+<p>Or, datasets from any of the Sentinel satellites:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;q=sentinel</code></li>
+</ul>
+<h3 id="advanced-geographical-search"><a class="header" href="#advanced-geographical-search">Advanced geographical search</a></h3>
+<p>PyCSW opensearch only supports geographical searches querying for a box. For more advanced geographical searches, one must write specific XML files. For example:</p>
+<ul>
+<li>To find all datasets containing a point:</li>
+</ul>
+<!-- -->
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; standalone=&quot;no&quot;?&gt;
+&lt;csw:GetRecords
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    service=&quot;CSW&quot;
+    version=&quot;2.0.2&quot;
+    resultType=&quot;results&quot;
+    maxRecords=&quot;10&quot;
+    outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd&quot; &gt;
+  &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+    &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+      &lt;ogc:Filter&gt;
+        &lt;ogc:Contains&gt;
+          &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+          &lt;gml:Point&gt;
+            &lt;gml:pos srsDimension=&quot;2&quot;&gt;59.0 4.0&lt;/gml:pos&gt;
+          &lt;/gml:Point&gt;
+        &lt;/ogc:Contains&gt;
+      &lt;/ogc:Filter&gt;
+    &lt;/csw:Constraint&gt;
+  &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>To find all datasets intersecting a polygon:</li>
+</ul>
+<!-- -->
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; standalone=&quot;no&quot;?&gt;
+&lt;csw:GetRecords
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot;
+    xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    service=&quot;CSW&quot;
+    version=&quot;2.0.2&quot;
+    resultType=&quot;results&quot;
+    maxRecords=&quot;10&quot;
+    outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd&quot; &gt;
+  &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+    &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+      &lt;ogc:Filter&gt;
+        &lt;ogc:Intersects&gt;
+          &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+          &lt;gml:Polygon&gt;
+            &lt;gml:exterior&gt;
+              &lt;gml:LinearRing&gt;
+                &lt;gml:posList&gt;
+                  47.00 -5.00 55.00 -5.00 55.00 20.00 47.00 20.00 47.00 -5.00
+                &lt;/gml:posList&gt;
+              &lt;/gml:LinearRing&gt;
+            &lt;/gml:exterior&gt;
+          &lt;/gml:Polygon&gt;
+        &lt;/ogc:Intersects&gt;
+      &lt;/ogc:Filter&gt;
+    &lt;/csw:Constraint&gt;
+  &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>Then, you can query the CSW endpoint with, e.g., python:</li>
+</ul>
+<!-- -->
+<pre><code>import requests
+requests.post('https://csw.s-enda.k8s.met.no', data=open(my_xml_request).read()).text
+</code></pre>
+<h3 id="web-portals"><a class="header" href="#web-portals">Web portals</a></h3>
+<p><strong>GeoNorge.no</strong></p>
+<p><strong>TODO:</strong> describe how to search in geonorge, possibly with screenshots</p>
+<h3 id="qgis"><a class="header" href="#qgis">QGIS</a></h3>
+<p>MET Norway’s S-ENDA CSW catalog service is available at <code>https://csw.s-enda.k8s.met.no</code>. This can be used from QGIS as follows:</p>
+<ol>
+<li>
+<p>Select <code>Web &gt; MetaSearch &gt; MetaSearch</code> menu item</p>
+</li>
+<li>
+<p>Select <code>Services &gt; New</code></p>
+</li>
+<li>
+<p>Type, e.g., <code>csw.s-enda.k8s.met.no</code> for the name</p>
+</li>
+<li>
+<p>Type <code>https://csw.s-enda.k8s.met.no</code> for the URL</p>
+</li>
+</ol>
+<p>Under the <code>Search</code> tab, you can then add search parameters, click <code>Search</code>, and get a list of available datasets.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="searching-data-in-the-catalog-service-for-the-web-csw-interface-1"><a class="header" href="#searching-data-in-the-catalog-service-for-the-web-csw-interface-1">Searching data in the Catalog Service for the Web (CSW) interface</a></h1>
+<h2 id="using-opensearch-1"><a class="header" href="#using-opensearch-1">Using OpenSearch</a></h2>
+<h3 id="local-test-machines-1"><a class="header" href="#local-test-machines-1">Local test machines</a></h3>
+<p>The <a href="https://github.com/metno/vagrant-s-enda"><code>vagrant-s-enda</code></a> environment found at <a href="https://github.com/metno/vagrant-s-enda">vagrant-s-enda</a> provides OpenSearch support through <a href="https://github.com/geopython/pycsw">PyCSW</a>. To test OpenSearch via the browser, start the <code>vagrant-s-enda</code> vm (<code>vagrant up</code>) and go to the following address:</p>
+<ul>
+<li><code>http://10.10.10.10/pycsw/csw.py?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetCapabilities</code></li>
+</ul>
+<h3 id="online-catalog-1"><a class="header" href="#online-catalog-1">Online catalog</a></h3>
+<p>For searching the online metadata catalog, the base url (<code>http://10.10.10.10/</code>) must be replaced by <code>https://csw.s-enda.k8s.met.no/</code>:</p>
+<ul>
+<li><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></li>
+</ul>
+<h3 id="opensearch-examples-1"><a class="header" href="#opensearch-examples-1">OpenSearch examples</a></h3>
+<p>To find all datasets in the catalog:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></li>
+</ul>
+<p>Or datasets within a given time span:</p>
+<ul>
+<li><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;time=2000-01-01/2020-09-01</code></li>
+</ul>
+<p>Or datasets within a geographical domain (defined as a box with parameters min_longitude, min_latitude, max_longitude, max_latitude):</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;bbox=0,40,10,60</code></li>
+</ul>
+<p>Or, datasets from any of the Sentinel satellites:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;q=sentinel</code></li>
+</ul>
+<h2 id="advanced-geographical-search-1"><a class="header" href="#advanced-geographical-search-1">Advanced geographical search</a></h2>
+<p>PyCSW opensearch only supports geographical searches querying for a box. For more advanced geographical searches, one must write specific XML files. For example:</p>
+<ul>
+<li>To find all datasets containing a point:</li>
+</ul>
+<!-- -->
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; standalone=&quot;no&quot;?&gt;
+&lt;csw:GetRecords
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    service=&quot;CSW&quot;
+    version=&quot;2.0.2&quot;
+    resultType=&quot;results&quot;
+    maxRecords=&quot;10&quot;
+    outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd&quot; &gt;
+  &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+    &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+      &lt;ogc:Filter&gt;
+        &lt;ogc:Contains&gt;
+          &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+          &lt;gml:Point&gt;
+            &lt;gml:pos srsDimension=&quot;2&quot;&gt;59.0 4.0&lt;/gml:pos&gt;
+          &lt;/gml:Point&gt;
+        &lt;/ogc:Contains&gt;
+      &lt;/ogc:Filter&gt;
+    &lt;/csw:Constraint&gt;
+  &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>To find all datasets intersecting a polygon:</li>
+</ul>
+<!-- -->
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; standalone=&quot;no&quot;?&gt;
+&lt;csw:GetRecords
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot;
+    xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    service=&quot;CSW&quot;
+    version=&quot;2.0.2&quot;
+    resultType=&quot;results&quot;
+    maxRecords=&quot;10&quot;
+    outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd&quot; &gt;
+  &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+    &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+      &lt;ogc:Filter&gt;
+        &lt;ogc:Intersects&gt;
+          &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+          &lt;gml:Polygon&gt;
+            &lt;gml:exterior&gt;
+              &lt;gml:LinearRing&gt;
+                &lt;gml:posList&gt;
+                  47.00 -5.00 55.00 -5.00 55.00 20.00 47.00 20.00 47.00 -5.00
+                &lt;/gml:posList&gt;
+              &lt;/gml:LinearRing&gt;
+            &lt;/gml:exterior&gt;
+          &lt;/gml:Polygon&gt;
+        &lt;/ogc:Intersects&gt;
+      &lt;/ogc:Filter&gt;
+    &lt;/csw:Constraint&gt;
+  &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>Then, you can query the CSW endpoint with, e.g., python:</li>
+</ul>
+<!-- -->
+<pre><code>import requests
+requests.post('https://csw.s-enda.k8s.met.no', data=open(my_xml_request).read()).text
+</code></pre>
+<h2 id="web-portals-1"><a class="header" href="#web-portals-1">Web portals</a></h2>
+<p><strong>GeoNorge.no</strong></p>
+<p><strong>TODO:</strong> describe how to search in geonorge, possibly with screenshots</p>
+<h2 id="qgis-1"><a class="header" href="#qgis-1">QGIS</a></h2>
+<p>MET Norway’s S-ENDA CSW catalog service is available at <code>https://csw.s-enda.k8s.met.no</code>. This can be used from QGIS as follows:</p>
+<ol>
+<li>
+<p>Select <code>Web &gt; MetaSearch &gt; MetaSearch</code> menu item</p>
+</li>
+<li>
+<p>Select <code>Services &gt; New</code></p>
+</li>
+<li>
+<p>Type, e.g., <code>csw.s-enda.k8s.met.no</code> for the name</p>
+</li>
+<li>
+<p>Type <code>https://csw.s-enda.k8s.met.no</code> for the URL</p>
+</li>
+</ol>
+<p>Under the <code>Search</code> tab, you can then add search parameters, click <code>Search</code>, and get a list of available datasets.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-netcdf-cf-files-1"><a class="header" href="#creating-netcdf-cf-files-1">Creating NetCDF-CF files</a></h1>
+<p>By documenting and formatting your data using <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#netcdf">NetCDF</a> following the <a href="https://cfconventions.org/">CF conventions</a> and the <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute Convention for Data Discovery (ACDD)</a>, <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#mmd">MMD</a> files can be automatically generated from the <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#netcdf">NetCDF</a> files. The <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#cf">CF conventions</a> is a controlled vocabulary providing a definitive description of what the data in each variable represents, and the spatial and temporal properties of the data. The <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#acdd">ACDD</a> vocabulary describes attributes recommended for describing a <a href="dmh_content/chapters/sub_chapters/acdd-elements.html#netcdf">NetCDF</a> dataset to data discovery systems. See, e.g., <a href="https://unidata.github.io/netcdf4-python/">netCDF4-python docs</a>, or <a href="http://xarray.pydata.org/en/stable/user-guide/io.html">xarray docs</a> for documentation about how to create netCDF files.</p>
+<p>The ACDD recommendations should be followed in order to properly document your netCDF-CF files. The below tables summarize required and recommended ACDD and some additional attributes that are needed to properly populate a discovery metadata catalog which fulfills the requirements of international standards (e.g., GCMD/DIF, the INSPIRE and WMO profiles of ISO19115, etc.).</p>
+<h2 id="notes-1"><a class="header" href="#notes-1">Notes</a></h2>
+<p><strong>Keywords</strong> describe the content of your dataset following a given vocabulary. You may use any vocabularies to define your keywords, but a link to the keyword definitions should be provided in the ``keywords_vocabulary`` attribute. This attribute provides information about the vocabulary defining the keywords used in the ``keywords`` attribute. Example:</p>
+<p>:keywords_vocabulary = &quot;GCMDSK:GCMD Science Keywords:https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords, GEMET:INSPIRE Themes:http://inspire.ec.europa.eu/theme, NORTHEMES:GeoNorge Themes:https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling&quot; ;</p>
+<p>Note that the <strong>GCMDSK</strong>, <strong>GEMET</strong> and <strong>NORTHEMES</strong> vocabularies are required for indexing in <a href="https://adc.met.no/">S-ENDA</a> and <a href="https://www.geonorge.no/en/">Geonorge</a>. You may find appropriate keywords at the following links:</p>
+<ul>
+<li>
+<p><a href="https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords">GCMDSK</a></p>
+</li>
+<li>
+<p><a href="http://inspire.ec.europa.eu/theme">GEMET</a></p>
+</li>
+<li>
+<p><a href="https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling">NORTHEMES</a></p>
+</li>
+</ul>
+<p>The keywords should be provided by the ``keywords`` attribute as a comma separated list with a short name defining the vocabulary used, followed by the actual keyword, i.e., ``short_name:keyword``. Example:</p>
+<p>:keywords = &quot;GCMDSK:Earth Science &gt; Atmosphere &gt; Atmospheric radiation, GEMET:Meteorological geographical features, GEMET:Atmospheric conditions, NORTHEMES:Weather and climate&quot; ;</p>
+<p>See <a href="https://adc.met.no/node/96">https://adc.met.no/node/96</a> for more information about how to define the ACDD keywords.</p>
+<p>A data <strong>license</strong> provides information about any restrictions on the use of the dataset. To support a linked data approach, the ``license`` element should be supported by a ``license_resource`` element, providing a link to the license definition. Example:</p>
+<p>:license = &quot;CC-BY-4.0&quot; ;<br />
+:license_resource = &quot;http://spdx.org/licenses/CC-BY-4.0&quot; ;</p>
+<h2 id="list-of-attributes-1"><a class="header" href="#list-of-attributes-1">List of Attributes</a></h2>
+<p>This section provides lists of ACDD elements that are required and recommended, as well as some extra elements that are needed to fully support our data management needs. The right columns of these tables provide the <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MET Norway Metadata Specification (MMD)</a> fields that map to the ACDD (and our extension to ACDD) elements. Please refer to <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MMD</a> for definitions of these elements, as well as controlled vocabularies that should be used. Note that the below tables are automatically generated - check <a href="https://github.com/metno/py-mmd-tools/blob/master/py_mmd_tools/mmd_elements.yaml">https://github.com/metno/py-mmd-tools/blob/master/py_mmd_tools/mmd_elements.yaml</a> if anything is unclear.</p>
+<p>In order to check your netCDF-CF files, and to create MMD xml files, you can use the nc2mmd.py script in the <a href="https://github.com/metno/py-mmd-tools">py-mmd-tools</a> Python package.</p>
+<p>The following ACDD elements are required:</p>
+<table><colgroup><col style="width: 33%" /><col style="width: 33%" /><col style="width: 33%" /></colgroup><tbody><tr class="odd"><td><p><strong>ACDD Attribute</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>id</p></td><td><p>metadata_identifier</p></td><td><p>Required, and should be UUID. No repetition allowed.</p></td></tr><tr class="odd"><td><p>naming_authority</p></td><td><p>metadata_identifier</p></td><td><p>Required. We recommend using reverse-DNS naming. No repetition allowed.</p></td></tr><tr class="even"><td><p>date_created</p></td><td><p>last_metadata_update&gt;update&gt;datetime</p></td><td><p>Format as ISO8601.</p></td></tr><tr class="odd"><td><p>title</p></td><td><p>title&gt;title</p></td><td><p>Use ACDD extension "title_no" for Norwegian translation.</p></td></tr><tr class="even"><td><p>summary</p></td><td><p>abstract&gt;abstract</p></td><td><p>Use ACDD extension "summary_no" for Norwegian translation.</p></td></tr><tr class="odd"><td><p>time_coverage_start</p></td><td><p>temporal_extent&gt;start_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>geospatial_lat_max</p></td><td><p>geographic_extent&gt;rectangle&gt;north</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>geospatial_lat_min</p></td><td><p>geographic_extent&gt;rectangle&gt;south</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>geospatial_lon_max</p></td><td><p>geographic_extent&gt;rectangle&gt;east</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>geospatial_lon_min</p></td><td><p>geographic_extent&gt;rectangle&gt;west</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>keywords</p></td><td><p>keywords&gt;keyword</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>keywords_vocabulary</p></td><td><p>keywords&gt;vocabulary</p></td><td><p>Comma separated list.</p></td></tr></tbody></table>
+<p>The following ACDD elements are (highly) recommended:</p>
+<table><colgroup><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /></colgroup><tbody><tr class="odd"><td><p><strong>ACDD Attribute</strong></p></td><td><p><strong>Default</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>date_metadata_modified</p></td><td></td><td><p>last_metadata_update&gt;update&gt;datetime</p></td><td><p>Format as ISO8601. Comma separated list if more than once.</p></td></tr><tr class="odd"><td><p>time_coverage_end</p></td><td></td><td><p>temporal_extent&gt;end_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>geospatial_bounds</p></td><td></td><td><p>geographic_extent&gt;polygon</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>processing_level</p></td><td></td><td><p>operational_status</p></td><td><p>No repetition allowed. See the MMD docs for valid keywords.</p></td></tr><tr class="even"><td><p>license</p></td><td></td><td><p>use_constraint&gt;identifier</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>creator_role</p></td><td><p>Investigator</p></td><td><p>personnel&gt;role</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>contributor_role</p></td><td><p>Investigator</p></td><td><p>personnel&gt;role</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>creator_name</p></td><td><p>Not available</p></td><td><p>personnel&gt;name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>contributor_name</p></td><td><p>Not available</p></td><td><p>personnel&gt;name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>creator_email</p></td><td><p>Not available</p></td><td><p>personnel&gt;email</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>creator_institution</p></td><td><p>Not available</p></td><td><p>personnel&gt;organisation</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>institution</p></td><td></td><td><p>data_center&gt;data_center_name&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>publisher_url</p></td><td></td><td><p>data_center&gt;data_center_url</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>project</p></td><td></td><td><p>project&gt;long_name</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="even"><td><p>platform</p></td><td></td><td><p>platform&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>platform_vocabulary</p></td><td></td><td><p>platform&gt;resource</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>instrument</p></td><td></td><td><p>platform&gt;instrument&gt;long_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>instrument_vocabulary</p></td><td></td><td><p>platform&gt;instrument&gt;resource</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>source</p></td><td></td><td><p>activity_type</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="odd"><td><p>creator_name</p></td><td></td><td><p>dataset_citation&gt;author</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>date_created</p></td><td></td><td><p>dataset_citation&gt;publication_date</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>title</p></td><td></td><td><p>dataset_citation&gt;title</p></td><td></td></tr><tr class="even"><td><p>publisher_name</p></td><td></td><td><p>dataset_citation&gt;publisher</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>metadata_link</p></td><td></td><td><p>dataset_citation&gt;url</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>references</p></td><td></td><td><p>dataset_citation&gt;other</p></td><td><p>Comma separated list.</p></td></tr></tbody></table>
+<p>The following elements are ACDD extensions that are needed to improve (meta)data interoperability. Please refer to the documentation of <a href="https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MMD</a> for more details:</p>
+<table><colgroup><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /></colgroup><tbody><tr class="odd"><td><p><strong>Necessary non-ACDD Attribute</strong></p></td><td><p><strong>Default</strong></p></td><td><p><strong>MMD equivalent</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr class="even"><td><p>spatial_representation</p></td><td></td><td><p>spatial_representation</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>alternate_identifier</p></td><td></td><td><p>alternate_identifier&gt;alternate_identifier</p></td><td><p>Alternative identifier for the dataset (but not DOI). Comma separated list.</p></td></tr><tr class="even"><td><p>alternate_identifier_type</p></td><td></td><td><p>alternate_identifier&gt;type</p></td><td><p>Identification of the type of identifier used. Comma separated list.</p></td></tr><tr class="odd"><td><p>date_metadata_modified_type</p></td><td></td><td><p>last_metadata_update&gt;update&gt;type</p></td><td><p>E.g., major or minor modification. Comma separated list.</p></td></tr><tr class="even"><td><p>date_created_type</p></td><td><p>Created</p></td><td><p>last_metadata_update&gt;update&gt;type</p></td><td></td></tr><tr class="odd"><td><p>title_no</p></td><td></td><td><p>title&gt;title</p></td><td><p>Used for Norwegian version of the title.</p></td></tr><tr class="even"><td><p>title_lang</p></td><td><p>en</p></td><td><p>title&gt;lang</p></td><td><p>ISO language code.</p></td></tr><tr class="odd"><td><p>summary_no</p></td><td></td><td><p>abstract&gt;abstract</p></td><td><p>Used for Norwegian version of the abstract.</p></td></tr><tr class="even"><td><p>summary_lang</p></td><td><p>en</p></td><td><p>abstract&gt;lang</p></td><td><p>ISO language code.</p></td></tr><tr class="odd"><td><p>dataset_production_status</p></td><td><p>Complete</p></td><td><p>dataset_production_status</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>access_constraint</p></td><td></td><td><p>access_constraint</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>license_resource</p></td><td></td><td><p>use_constraint&gt;resource</p></td><td><p>No repetition allowed.</p></td></tr><tr class="even"><td><p>contributor_email</p></td><td><p>Not available</p></td><td><p>personnel&gt;email</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>contributor_institution</p></td><td></td><td><p>personnel&gt;organisation</p></td><td></td></tr><tr class="even"><td><p>contributor_organisation</p></td><td></td><td><p>personnel&gt;organisation</p></td><td></td></tr><tr class="odd"><td><p>institution_short_name</p></td><td></td><td><p>data_center&gt;data_center_name&gt;short_name</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>related_dataset_id</p></td><td></td><td><p>related_dataset&gt;related_dataset</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>related_dataset_relation_type</p></td><td></td><td><p>related_dataset&gt;relation_type</p></td><td><p>Comma separated list.</p></td></tr><tr class="even"><td><p>iso_topic_category</p></td><td></td><td><p>iso_topic_category</p></td><td><p>Comma separated list.</p></td></tr><tr class="odd"><td><p>project_short_name</p></td><td></td><td><p>project&gt;short_name</p></td><td><p>Semicolon separated list.</p></td></tr><tr class="even"><td><p>quality_control</p></td><td></td><td><p>quality_control</p></td><td><p>No repetition allowed.</p></td></tr><tr class="odd"><td><p>doi</p></td><td></td><td><p>dataset_citation&gt;doi</p></td><td></td></tr></tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-add-netcdf-cf-data-to-thredds-1"><a class="header" href="#how-to-add-netcdf-cf-data-to-thredds-1">How to add NetCDF-CF data to thredds</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
+<p>At various stages during the writing of the first version of this handbook, we have solicited comments on the manuscript from coworkers at MET Norway (in alphabetical order): Åsmund Bakketun, Arild Burud, Lara Ferrighi, Håvard Futsæter and Nina Larsgård. Their comments and advice are gratefully acknowledged. In addition, we thank members of the top management at MET Norway, including Lars-Anders Breivik, Bård Fjukstad, Jørn Kristensen, Anne-Cecilie Riiser, Roar Skålin and Cecilie Stenersen, who have provided valuable criticism and advice.</p>
+<p>While working on the second version of this handbook, valuable input has come from Matteo De Stefano from NINA. This input has made it possible to transform this handbook into a tool that can be adopted by institutions outside of METNorway.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="glossary-of-terms-and-names"><a class="header" href="#glossary-of-terms-and-names">Glossary of Terms and Names</a></h1>
+<table><colgroup><col style="width: 100%" /></colgroup><tbody><tr class="odd"><td><p>Term</p></td></tr><tr class="even"><td><p>Description</p></td></tr><tr class="odd"><td><p>Application service</p></td></tr><tr class="even"><td><p>TBC</p></td></tr><tr class="odd"><td><p>CDM dataset</p></td></tr><tr class="even"><td><p>A dataset that “may be a NetCDF, HDF5, GRIB, etc. file, an OPeNDAP dataset, a collection of files, or anything else which can be accessed through the NetCDF API.” <a href="https://www.unidata.ucar.edu/software/netcdf-java/v4.6/CDM/index.html">Unidata Common Data Model</a></p></td></tr><tr class="odd"><td><p>Configuration metadata</p></td></tr><tr class="even"><td><p>See Configuration metadata definition in Table 2</p></td></tr><tr class="odd"><td><p>Controlled vocabulary</p></td></tr><tr class="even"><td><p>A carefully selected list of terms (words and phrases) controlled by some authority. They are used to tag information elements (such as datasets) so that they are easier to search for. (see <a href="https://en.wikipedia.org/wiki/Controlled_vocabulary">Wikipedia article</a>) A basic element in the implementation of the <a href="dmh_content/vocab/glossary.html#glossary-semantic-web">Semantic web</a>.</p></td></tr><tr class="odd"><td><p>Data Governance</p></td></tr><tr class="even"><td><p>Tech Target (<a href="https://searchdatamanagement.techtarget.com/definition/data-governance">https://searchdatamanagement.techtarget.com/definition/data-governance</a>). An alternative definition by George Firican: “Data Governance is the discipline which provides all data management practices with the necessary foundation, strategy, and structure needed to ensure that data is managed as an asset and transformed into meaningful information.” (<a href="http://www.lightsondata.com/what-is-data-governance/">http://www.lightsondata.com/what-is-data-governance/</a> which also contains several more definitions.)</p></td></tr><tr class="odd"><td><p>Data life cycle management</p></td></tr><tr class="even"><td><p>“Data life cycle management (DLM) is a policy-based approach to managing the flow of an information system’s data throughout its life cycle: from creation and initial storage to the time when it becomes obsolete and is deleted.” Excerpt from <a href="https://searchstorage.techtarget.com/definition/data-life-cycle-management">TechTarget</a> article. Alias: life cycle management</p></td></tr><tr class="odd"><td><p>Data Management Plan</p></td></tr><tr class="even"><td><p>“A data management plan (DMP) is a written document that describes the data you expect to acquire or generate during the course of a research project, how you will manage, describe, analyse, and store those data, and what mechanisms you will use at the end of your project to share and preserve your data.” <a href="https://library.stanford.edu/research/data-management-services/data-management-plans">Stanford Libraries</a></p></td></tr><tr class="odd"><td><p>Data centre</p></td></tr><tr class="even"><td><p>A combination of a (distributed) data repository and the data availability services and information about them (e.g., a metadata catalog). A data centre may include contributions from several other data centres.</p></td></tr><tr class="odd"><td><p>Data management</p></td></tr><tr class="even"><td><p>How data sets are handled by the organisation through the entire value chain - include receiving, storing, metadata management and data retrieval.</p></td></tr><tr class="odd"><td><p>Data provenance</p></td></tr><tr class="even"><td><p>“The term ‘data provenance’ refers to a record trail that accounts for the origin of a piece of data (in a database, document or repository) together with an explanation of how and why it got to the present place.” (Gupta, 2009). See also <a href="https://www.theboohers.org/2015/03/03/provenance/">Boohers (2015)</a></p></td></tr><tr class="odd"><td><p>Data repository</p></td></tr><tr class="even"><td><p>A set of distributed components that will hold the data and ensure they can be queried and accessed according to agreed protocols. This component is also known as a Data Node.</p></td></tr><tr class="odd"><td><p>Dataset</p></td></tr><tr class="even"><td><p>A dataset is a pre-defined grouping or collection of related data for an intended use. Datasets may be categorised by:</p><p><em>Source</em>, such as observations (in situ, remotely sensed) and numerical model projections and analyses;</p><p><em>Processing level</em>, such as “raw data” (values measured by an instrument), calibrated data, quality-controlled data, derived parameters (preferably with error estimates), temporally and/or spatially aggregated variables;</p><p><em>Data type</em>, including point data, sections and profiles, lines and polylines, polygons, gridded data, volume data, and time series (of points, grids, etc.).</p><p>Data having all of the same characteristics in each category, but different independent variable ranges and/or responding to a specific need, are normally considered part of a single dataset. In the context of data preservation a dataset consists of the data records and their associated knowledge (information, tools). In practice, our datasets should conform to the <a href="dmh_content/vocab/glossary.html#glossary-CMD-dataset">Unidata CDM dataset</a> definition, as much as possible.</p></td></tr><tr class="odd"><td><p>Discovery metadata</p></td></tr><tr class="even"><td><p>See Discovery metadata definition in Table 2</p></td></tr><tr class="odd"><td><p>Dynamic geodata</p></td></tr><tr class="even"><td><p>Data describing geophysical processes which are continuously evolving over time. Typically these data are used for monitoring and prediction of the weather, sea, climate and environment. Dynamic geodata is weather, environment and climate-related data that changes in space and time and is thus descriptive of processes in nature. Examples are weather observations, weather forecasts, pollution (environmental toxins) in water, air and sea, information on the drift of cod eggs and salmon lice, water flow in rivers, driving conditions on the roads and the distribution of sea ice. Dynamic geodata provides important constraints for many decision-making processes and activities in society.</p></td></tr><tr class="odd"><td><p>FAIR principles</p></td></tr><tr class="even"><td><p>The four foundational principles of good data management and stewardship: *F*indability, *A*ccessibility, *I*nteroperability and *R*eusability. Nature article [<a href="https://www.nature.com/articles/sdata201618">RD3</a>], <a href="https://www.go-fair.org/fair-principles/">FAIR Data Principles</a>, <a href="https://github.com/FAIRMetrics/Metrics">FAIR metrics proposal</a>, <a href="https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-data-mgt_en.pdf">EU H2020 Guidelines</a></p></td></tr><tr class="odd"><td><p>Feature type</p></td></tr><tr class="even"><td><p>A categorisation of data according to how they are stored, for example, grid, time series, profile, etc. It has been formalised in the NetCDF/CF <a href="https://www.nodc.noaa.gov/data/formats/netcdf/v2.0/#templatesexamples">feature type table</a>, which currently defines eight feature types.</p></td></tr><tr class="odd"><td><p>Geodataloven</p></td></tr><tr class="even"><td><p>"Norwegian regulation toward good and efficient access to public geographic information for public and private purposes." See <a href="https://www.regjeringen.no/no/tema/plan-bygg-og-eiendom/plan-og-bygningsloven/kart/geodataloven/id749728/">Deling av geodata – Geodataloven</a>.</p></td></tr><tr class="odd"><td><p>Geonorge</p></td></tr><tr class="even"><td><p>"Geonorge is the national website for map data and other location information in Norway. Users of map data can search for any such information available and access it here." See <a href="https://www.geonorge.no/en/">Geonorge</a>.</p></td></tr><tr class="odd"><td><p>Geographic Information System</p></td></tr><tr class="even"><td><p>A geographic information system (GIS) is a system designed to capture, store, manipulate, analyze, manage and present spatial or geographic data. (Clarke, K. C., 1986) GIS systems have lately evolved in distributed <a href="dmh_content/vocab/glossary.html#glossary-spatial-data-infrastructure">Spatial Data Infrastructures (SDI)</a></p></td></tr><tr class="odd"><td><p>Glossary</p></td></tr><tr class="even"><td><p>Terms and their definitions, possibly with synonyms.</p></td></tr><tr class="odd"><td><p>Interoperability</p></td></tr><tr class="even"><td><p>The ability of data or tools from non-cooperating resources to integrate or work together with minimal effort.</p></td></tr><tr class="odd"><td><p>Linked data</p></td></tr><tr class="even"><td><p>A method of publishing structured data so that they can be interlinked and become more useful through <a href="https://en.wikipedia.org/wiki/Semantic_query">semantic queries</a>, i.e., through machine-machine interactions. (see <a href="https://en.wikipedia.org/wiki/Linked_data">Wikipedia article</a>)</p></td></tr><tr class="odd"><td><p>Ontology</p></td></tr><tr class="even"><td><p>A set of concepts with attributes and relationships that define a domain of knowledge.</p></td></tr><tr class="odd"><td><p>OpenSearch</p></td></tr><tr class="even"><td><p>A collection of simple formats for the sharing of search results (<a href="https://github.com/dewitt/opensearch">OpenSearch</a>)</p></td></tr><tr class="odd"><td><p>Product</p></td></tr><tr class="even"><td><p>"Product" is not a uniquely defined term among the various providers of dynamical geodata, either nationally or internationally. It is often used synonymously with "dataset." For the sake of clarity, "product" is not used in this handbook. The term "dataset" is adequate for our purpose.</p></td></tr><tr class="odd"><td><p>Semantic web</p></td></tr><tr class="even"><td><p>“The Semantic Web provides a common framework that allows data to be shared and reused across application, enterprise, and community boundaries". <a href="https://www.w3.org/2001/sw/">W3C</a> (see <a href="https://en.wikipedia.org/wiki/Semantic_Web">Wikipedia article</a>)</p></td></tr><tr class="odd"><td><p>Site metadata</p></td></tr><tr class="even"><td><p>See Site metadata definition in Table 2</p></td></tr><tr class="odd"><td><p>Spatial Data Infrastructure</p></td></tr><tr class="even"><td><p>"Spatial Data Infrastructure (SDI) is defined as a framework of policies, institutional arrangements. technologies, data, and people that enables the sharing and effective usage of geographic information by standardising formats and protocols for access and interoperability." (Tonchovska et al, 2012). SDI has evolved from <a href="dmh_content/vocab/glossary.html#glossary-geographic-information-system">GIS</a>. Among the largest implementations are: NSDI in the USA, INSPIRE in Europe and UNSDI as an effort by the United Nations. For areas in the Arctic, there is <a href="https://arctic-sdi.org/">arctic-sdi.org</a>.</p></td></tr><tr class="odd"><td><p>Unified data management</p></td></tr><tr class="even"><td><p>A common approach to data management in a grouping of separate data management enterprises.</p></td></tr><tr class="odd"><td><p>Use metadata</p></td></tr><tr class="even"><td><p>See Use metadata definition in Table 2</p></td></tr><tr class="odd"><td><p>Web portal</p></td></tr><tr class="even"><td><p>A central website where all users can search, browse, access, transform, display and download datasets irrespective of the data repository in which the data are held.</p></td></tr><tr class="odd"><td><p>Web service</p></td></tr><tr class="even"><td><p>Web services are used to communicate metadata, data and to offer processing services. Much effort has been put on standardisation of web services to ensure they are reusable in different contexts. In contrast to web applications, web services communicate with other programs, instead of interactively with users. (See <a href="https://techterms.com/definition/web_service">TechTerms article</a>)</p></td></tr><tr class="odd"><td><p>Workflow management</p></td></tr><tr class="even"><td><p>Workflow management is the process of tracking data, software and other actions on data into a new form of the data. It is related to data provenance, but is usually used in the context of <a href="dmh_content/vocab/glossary.html#glossary-scientific-workflow-management-systems">workflow management systems</a>.</p></td></tr><tr class="odd"><td><p>(Scientific) Workflow management systems</p></td></tr><tr class="even"><td><p>A scientific workflow system is a specialised form of a workflow management system designed specifically to compose and execute a series of computational or data manipulation steps, or workflow, in a scientific application. (<a href="https://en.wikipedia.org/wiki/Scientific_workflow_system">Wikipedia</a>) As of today, many different frameworks exist with their own proprietary languages, these might eventually get connected by using a <a href="https://www.commonwl.org/">common workflow definition language</a>.</p></td></tr></tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-of-acronyms"><a class="header" href="#list-of-acronyms">List of Acronyms</a></h1>
+<p>This list contains acronyms used throughout the DMH. The column &quot;General/Specific&quot; indicates if the acronyms are used in the general part of the DMH (from the template) or if they are organisation specific.</p>
+<table><colgroup><col style="width: 100%" /></colgroup><tbody><tr class="odd"><td><p>Acronym</p></td></tr><tr class="even"><td><p>Meaning</p></td></tr><tr class="odd"><td><p>General/specific</p></td></tr><tr class="even"><td><p>ACDD</p></td></tr><tr class="odd"><td><p>Attribute Convention for Dataset Discovery <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">RD5</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ADC</p></td></tr><tr class="even"><td><p>Arctic Data Centre (<a href="https://pm.met.no/home">ADC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>AeN</p></td></tr><tr class="odd"><td><p>Arven etter Nansen (English: Nansen Legacy)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>BUFR</p></td></tr><tr class="even"><td><p>Binary Universal Form for the Representation of meteorological data. WMO standard format for binary data, particularly for non-gridded data (<a href="https://www.wmo.int/pages/prog/www/WDM/Guides/Guide-binary-1A.html">BUFR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>CDM</p></td></tr><tr class="odd"><td><p>Unidata Common Data Model (<a href="https://docs.unidata.ucar.edu/netcdf-java/current/userguide/common_data_model_overview.html">CDM</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>CF</p></td></tr><tr class="even"><td><p>Climate and Forecast Metadata Conventions (<a href="http://cfconventions.org/">CF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>CMS</p></td></tr><tr class="odd"><td><p>Content Management System</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>CSW</p></td></tr><tr class="even"><td><p>Catalog Service for the Web (<a href="https://www.ogc.org/standards/cat">CSW</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DAP</p></td></tr><tr class="odd"><td><p>Data access protocol (<a href="https://earthdata.nasa.gov/esdis/eso/standards-and-references/data-access-protocol-2">DAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DBMS</p></td></tr><tr class="even"><td><p>DataBase Management System (<a href="https://en.wikipedia.org/wiki/Database#Database_management_system">DBMS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DIANA</p></td></tr><tr class="odd"><td><p>Digital Analysis tool for visualisation of geodata, open source from MET Norway (<a href="https://github.com/metno/diana">DIANA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>diana-WMS</p></td></tr><tr class="even"><td><p>WMS implementation in DIANA</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DIAS</p></td></tr><tr class="odd"><td><p>Copernicus Data and Information Access Services (<a href="https://www.copernicus.eu/en/access-data/dias">DIAS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DIF</p></td></tr><tr class="even"><td><p>Directory Interchange Format of GCMD (<a href="https://earthdata.nasa.gov/esdis/eso/standards-and-references/directory-interchange-format-dif-standard">DIF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DLM</p></td></tr><tr class="odd"><td><p>Data life cycle management (<a href="https://searchstorage.techtarget.com/definition/data-life-cycle-management">DLM</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DM</p></td></tr><tr class="even"><td><p>Data Manager</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DMH</p></td></tr><tr class="odd"><td><p>Data Management Handbook (this document)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DMCG</p></td></tr><tr class="even"><td><p>Data Management Coordination Group</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DMP</p></td></tr><tr class="odd"><td><p>Data Management Plan (<a href="https://en.wikipedia.org/wiki/Data_management_plan">DMP definition</a>, <a href="https://www.sigma2.no/data-planning">easyDMP tool</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DOI</p></td></tr><tr class="even"><td><p>Digital Object Identifier (<a href="https://www.doi.org/index.html">DOI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>eduGAIN</p></td></tr><tr class="odd"><td><p>The Global Academic Interfederation Service (<a href="https://edugain.org/">eduGAIN</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ENVRI</p></td></tr><tr class="even"><td><p>European Environmental Research Infrastructures (<a href="https://envri.eu/">ENVRI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ENVRI FAIR</p></td></tr><tr class="odd"><td><p>"Making the ENV RIs data services FAIR." A proposal to the EU’s Horizon 2020 call INFRAEOSC-04</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>EOSC</p></td></tr><tr class="even"><td><p>European Open Science Cloud (<a href="https://eosc-portal.eu/">EOSC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ERDDAP</p></td></tr><tr class="odd"><td><p>NOAA Environmental Research Division Data Access Protocol (<a href="https://coastwatch.pfeg.noaa.gov/erddap/index.html">ERDDAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ESA</p></td></tr><tr class="even"><td><p>European Space Agency (<a href="http://www.esa.int/">ESA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ESGF</p></td></tr><tr class="odd"><td><p>Earth System Grid Federation (<a href="https://esgf.llnl.gov/">ESGF</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>EWC</p></td></tr><tr class="even"><td><p>European Weather Cloud ()</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>FAIR</p></td></tr><tr class="odd"><td><p>Findability, Accessibility, Interoperability and Reusability <a href="https://www.nature.com/articles/sdata201618">RD3</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>FEIDE</p></td></tr><tr class="even"><td><p>Identity Federation of the Norwegian National Research and Education Network (UNINETT) (<a href="https://www.feide.no/">FEIDE</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>FFI</p></td></tr><tr class="odd"><td><p>Norwegian Defence Research Establishment (<a href="https://www.ffi.no/en">FFI</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>FORCE11</p></td></tr><tr class="even"><td><p>Future of Research Communication and e-Scholarship (<a href="https://www.force11.org/">FORCE11</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GCMD</p></td></tr><tr class="odd"><td><p>Global Change Master Directory (<a href="https://idn.ceos.org/">GCMD</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>GCW</p></td></tr><tr class="even"><td><p>Global Cryosphere Watch (<a href="https://globalcryospherewatch.org/">GCW</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GeoAccessNO</p></td></tr><tr class="odd"><td><p>An NFR-funded infrastructure project, 2015- (<a href="https://www.geoaccessno.no/">GeoAccessNO</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>GIS</p></td></tr><tr class="even"><td><p><a href="dmh_content/vocab/acronyms.html#glossary-geographic-information-system">Geographic Information System</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GRIB</p></td></tr><tr class="odd"><td><p>GRIdded Binary or General Regularly-distributed Information in Binary form. WMO standard file format for gridded data (<a href="https://www.wmo.int/pages/prog/www/WDM/Guides/Guide-binary-2.html">GRIB</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>HDF, HDF5</p></td></tr><tr class="even"><td><p>Hierarchical Data Format (<a href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">HDF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>Hyrax</p></td></tr><tr class="odd"><td><p>OPeNDAP 4 Data Server (<a href="https://www.opendap.org/software/hyrax-data-server">Hyrax</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>IMR</p></td></tr><tr class="even"><td><p>Institute of Marine Research (<a href="https://www.hi.no/en">IMR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>INSPIRE</p></td></tr><tr class="odd"><td><p>Infrastructure for Spatial Information in Europe (<a href="https://inspire.ec.europa.eu/">INSPIRE</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ISO 19115</p></td></tr><tr class="even"><td><p>ISO standard for geospatial metadata (<a href="https://www.iso.org/standard/53798.html">ISO 19115-1:2014</a>).</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>IPY</p></td></tr><tr class="odd"><td><p>International Polar Year (<a href="https://public.wmo.int/en/bulletin/international-polar-year-2007-2008">IPY</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>JRCC</p></td></tr><tr class="even"><td><p>Joint Rescue Coordination centre (<a href="https://www.hovedredningssentralen.no/english/">Hovedredningssentralen</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>KDVH</p></td></tr><tr class="odd"><td><p>KlimaDataVareHus</p></td></tr><tr class="even"><td><p>Specific to METNorway</p></td></tr><tr class="odd"><td><p>KPI</p></td></tr><tr class="even"><td><p>Key Performance Indicator (<a href="https://en.wikipedia.org/wiki/Performance_indicator">KPI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>METCIM</p></td></tr><tr class="odd"><td><p>MET Norway Crisis and Incident Management (<a href="https://metcim.no/">METCIM</a>)</p></td></tr><tr class="even"><td><p>Specific to METNorway</p></td></tr><tr class="odd"><td><p>METSIS</p></td></tr><tr class="even"><td><p>MET Norway Scientific Information System</p></td></tr><tr class="odd"><td><p>Specific to METNorway</p></td></tr><tr class="even"><td><p>MMD</p></td></tr><tr class="odd"><td><p>Met.no Metadata Format <a href="https://github.com/metno/mmd">MMD</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>MOAI</p></td></tr><tr class="even"><td><p>Meta Open Archives Initiative server (<a href="https://github.com/infrae/moai">MOAI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ncWMS</p></td></tr><tr class="odd"><td><p>WMS implementation for NetCDF files (<a href="https://reading-escience-centre.github.io/ncwms/">ncWMS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NERSC</p></td></tr><tr class="even"><td><p>Nansen Environmental and Remote Sensing Center (<a href="https://www.nersc.no/">NERSC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NetCDF</p></td></tr><tr class="odd"><td><p>Network Common Data Format (<a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NetCDF/CF</p></td></tr><tr class="even"><td><p>A common combination of <a href="dmh_content/vocab/acronyms.html#netcdf">NetCDF</a> file format with <a href="dmh_content/vocab/acronyms.html#cf">CF</a>-compliant attributes.</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NFR</p></td></tr><tr class="odd"><td><p>The Research Council of Norway (<a href="https://www.forskningsradet.no/en/">NFR</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NILU</p></td></tr><tr class="even"><td><p>Norwegian Institute for Air Research (<a href="https://www.nilu.no/Forsiden/tabid/41/language/en-GB/Default.aspx">NILU</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NIVA</p></td></tr><tr class="odd"><td><p>Norwegian Institute for Water Research (<a href="https://www.niva.no/en">NIVA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NMDC</p></td></tr><tr class="even"><td><p>Norwegian Marine Data Centre, NFR-supported infrastructure project 2013-2017 (<a href="https://nmdc.no/">NMDC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NorDataNet</p></td></tr><tr class="odd"><td><p>Norwegian Scientific Data Network, an NFR-funded project 2015-2020 (<a href="https://www.nordatanet.no/">NorDataNet</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>Norway Digital</p></td></tr><tr class="even"><td><p>Norwegian national spatial data infrastructure organisation (<a href="https://www.geonorge.no/en/infrastructure/norway-digital/">Norway Digital</a>). Norwegian: <a href="https://www.geonorge.no/Geodataarbeid/Norge-digitalt/">Norge digitalt</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NORMAP</p></td></tr><tr class="odd"><td><p>Norwegian Satellite Earth Observation Database for Marine and Polar Research, an NFR-funded project 2010-2016 (<a href="https://normap.nersc.no/">NORMAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NRPA</p></td></tr><tr class="even"><td><p>Norwegian Radiation Protection Authority (<a href="https://dsa.no/en/">NRPA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NSDI</p></td></tr><tr class="odd"><td><p>National Spatial Data Infrastructure, USA (<a href="https://www.fgdc.gov/nsdi/nsdi.html">NSDI</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NVE</p></td></tr><tr class="even"><td><p>Norwegian Water Resources and Energy Directorate (<a href="https://www.nve.no/english/">NVE</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NWP</p></td></tr><tr class="odd"><td><p>Numerical Weather Prediction</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OAI-PMH</p></td></tr><tr class="even"><td><p>Open Archives Initiative - Protocol for Metadata Harvesting (<a href="https://www.openarchives.org/pmh/">OAI-PMH</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OAIS</p></td></tr><tr class="odd"><td><p>Open Archival Information System (<a href="https://en.wikipedia.org/wiki/Open_Archival_Information_System">OAIS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OCEANOTRON</p></td></tr><tr class="even"><td><p>Web server dedicated to the dissemination of ocean in situ observation data collections (<a href="https://forge.ifremer.fr/plugins/mediawiki/wiki/oceanotron/index.php/Oceanotron_description">OCEANOTRON</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OECD</p></td></tr><tr class="odd"><td><p>The organisation for Economic Co-operation and Developement. <a href="https://www.oecd.org/">OECD</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OGC</p></td></tr><tr class="even"><td><p>Open Geospatial Consortium (<a href="https://www.ogc.org/">OGC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OGC O&amp;M</p></td></tr><tr class="odd"><td><p>OGC Observations and Measurements standard (<a href="https://www.ogc.org/standards/om">OGC O&amp;M</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OLA</p></td></tr><tr class="even"><td><p>Operational-level Agreement (<a href="https://en.wikipedia.org/wiki/Operational-level_agreement">OLA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OPeNDAP</p></td></tr><tr class="odd"><td><p>Open-source Project for a Network Data Access Protocol (<a href="https://www.opendap.org/">OPeNDAP</a>) - reference server implementation</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>PID</p></td></tr><tr class="even"><td><p>Persistent Identifier (<a href="https://en.wikipedia.org/wiki/Persistent_identifier">PID</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>RM-ODP</p></td></tr><tr class="odd"><td><p>Reference Model of Open Distributed Processing (<a href="https://en.wikipedia.org/wiki/RM-ODP">RM-ODP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>PROV</p></td></tr><tr class="even"><td><p>A W3C Working Group on provenance and a Family of Documents (<a href="https://www.w3.org/TR/prov-overview/">PROV</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SAON</p></td></tr><tr class="odd"><td><p>Sustaining Arctic Observing Networks (<a href="https://iasc.info/data-observations/saon">SAON/IASC</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SDI</p></td></tr><tr class="even"><td><p><a href="dmh_content/vocab/acronyms.html#spatial-data-infrastructure">Spatial Data Infrastructure</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SDN</p></td></tr><tr class="odd"><td><p><a href="https://www.seadatanet.org/">SeaDataNet</a>, Pan-European infrastructure for ocean &amp; marine data management</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SIOS</p></td></tr><tr class="even"><td><p>Svalbard Integrated Arctic Earth Observing System</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SIOS-KC</p></td></tr><tr class="odd"><td><p><a href="dmh_content/vocab/acronyms.html#sios">SIOS</a> Knowledge Centre, an NFR-supported project 2015-2018 (<a href="https://www.sios-svalbard.org/KnowledgeCentre">SIOS-KC</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SKOS</p></td></tr><tr class="even"><td><p>Simple Knowledge Organization System (<a href="https://www.w3.org/2004/02/skos/">SKOS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SLA</p></td></tr><tr class="odd"><td><p>Service-level Agreement (<a href="https://en.wikipedia.org/wiki/Service-level_agreement">SLA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SolR</p></td></tr><tr class="even"><td><p>Apache Enterprise search server with a REST-like API (<a href="https://lucene.apache.org/solr/">SolR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>StInfoSys</p></td></tr><tr class="odd"><td><p>MET Norway’s Station Information System</p></td></tr><tr class="even"><td><p>Specific to METnorway</p></td></tr><tr class="odd"><td><p>TDS</p></td></tr><tr class="even"><td><p>THREDDS Data Server (<a href="https://www.unidata.ucar.edu/software/tds/current/">TDS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>THREDDS</p></td></tr><tr class="odd"><td><p>Thematic Real-time Environmental Distributed Data Services</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>UNSDI</p></td></tr><tr class="even"><td><p>United Nations Spatial Data Infrastructure (<a href="https://en.wikipedia.org/wiki/United_Nations_Spatial_Data_Infrastructure">UNSDI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>UUID</p></td></tr><tr class="odd"><td><p>Universally Unique Identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>W3C</p></td></tr><tr class="even"><td><p>World Wide Web Consortium (<a href="https://www.w3.org/">W3C</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WCS</p></td></tr><tr class="odd"><td><p>OGC Web Coverage Service (<a href="https://www.ogc.org/standards/wcs">WCS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WFS</p></td></tr><tr class="even"><td><p>OGC Web Feature Service (<a href="https://www.ogc.org/standards/wfs">WFS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WIGOS</p></td></tr><tr class="odd"><td><p>WMO Integrated Global Observing System (<a href="https://community.wmo.int/activity-areas/wigos">WIGOS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WIS</p></td></tr><tr class="even"><td><p>WMO Information System (<a href="https://community.wmo.int/activity-areas/wis">WIS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WMO</p></td></tr><tr class="odd"><td><p>World Meteorological Organisation (<a href="https://public.wmo.int/en">WMO</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WMS</p></td></tr><tr class="even"><td><p>OGC Web Map Service (<a href="https://www.ogc.org/standards/wms">WMS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WPS</p></td></tr><tr class="odd"><td><p>OGC Web Processing Service (<a href="https://www.ogc.org/standards/wps">WPS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>YOPP</p></td></tr><tr class="even"><td><p>Year of Polar Prediction (<a href="https://yopp.met.no/metadata_search">YOPP Data Portal</a>)</p></td></tr><tr class="odd"><td></td></tr></tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-a-list-of-referenced-softwares--services"><a class="header" href="#appendix-a-list-of-referenced-softwares--services">Appendix A: list of referenced softwares &amp; services</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>

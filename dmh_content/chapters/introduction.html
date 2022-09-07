@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 1: Introduction - NINA&#x27;s data management handbook</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content=" ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Preliminary_comments</a></li><li class="chapter-item expanded affix "><li class="part-title">Core book</li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/introduction.html" class="active"><strong aria-hidden="true">1.</strong> Chapter 1: Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/summary-requirements.html"><strong aria-hidden="true">1.1.</strong> Summary of data management requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/structure-and-documenting.html"><strong aria-hidden="true">2.</strong> Chapter 2: Structuring and documenting data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/unknown/human-roles.html"><strong aria-hidden="true">2.1.</strong> Human roles in data management</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/data-services.html"><strong aria-hidden="true">3.</strong> Chapter 3: Data services</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/user-portals.html"><strong aria-hidden="true">4.</strong> Chapter 4: User portals and documentation</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/data-governance.html"><strong aria-hidden="true">5.</strong> Chapter 5: Data governance</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/practical-guide.html"><strong aria-hidden="true">6.</strong> Chapter 6: Practical guides</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/search_context.html"><strong aria-hidden="true">6.1.</strong> Using OpenSearch</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/acdd-elements.html"><strong aria-hidden="true">6.2.</strong> Creating NetCDF-CF files</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/register-context.html"><strong aria-hidden="true">6.3.</strong> How to add NetCDF-CF data to thredds</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/acknowledgements.html"><strong aria-hidden="true">7.</strong> Acknowledgements</a></li><li class="chapter-item expanded affix "><li class="part-title">Vocabulary</li><li class="chapter-item expanded "><a href="../../dmh_content/vocab/glossary.html"><strong aria-hidden="true">8.</strong> Glossary of terms and names</a></li><li class="chapter-item expanded "><a href="../../dmh_content/vocab/acronyms.html"><strong aria-hidden="true">9.</strong> List of acronyns</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="../../dmh_content/appendix/appendixA.html"><strong aria-hidden="true">10.</strong> Appendix A: list of referenced softwares & services</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Appendix B: Users of NINA's data</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">NINA&#x27;s data management handbook</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook/tree/master/guide" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook/edit/master/guide/src/dmh_content/chapters/introduction.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The purpose of the Data Management Handbook (<a href="#dmh">DMH</a>) is threefold:</p>
+<ol>
+<li>
+<p>to provide an overview of the principles for data management to be employed;</p>
+</li>
+<li>
+<p>to help personnel identify their roles and responsibilities for good data management; and</p>
+</li>
+<li>
+<p>to provide personnel with practical guidelines for carrying out good data management.</p>
+</li>
+</ol>
+<p><a href="#glossary-data-management"><em>Data management</em></a> is the term used to describe the handling of data in a systematic and cost-effective manner. The data management regime should be continuously evolving, to reflect the evolving nature of data collection. Therefore this <a href="#dmh">DMH</a> is a living document that will be revised and updated from time to time in order to maintain its relevance.</p>
+<p>The <a href="#dmh">DMH</a> is a strategic governing document and should be used as part of the quality framework the organisation is using.</p>
+<p>The primary focus of this <a href="#dmh">DMH</a> is on the management of <a href="#glossary-dynamic-geodata">dynamic geodata</a>. <a href="#glossary-dynamic-geodata">Dynamic geodata</a> is weather, environment and climate-related data that changes in space and time and is thus descriptive of processes in nature. Examples are weather observations, weather forecasts, pollution (environmental toxins) in water, air and sea, information on the drift of cod eggs and salmon lice, water flow in rivers, driving conditions on the roads and the distribution of sea ice. <a href="#glossary-dynamic-geodata">Dynamic geodata</a> provides important constraints for many decision-making processes and activities in society.</p>
+<p>This introduction (<a href="#introduction">Introduction</a>) lays forth the background and principles for the data management regime. Chapters 2-5 describe the implementation of the main building blocks: structuring and documenting data (<a href="#structuring-and-documenting">???</a>), data services (<a href="#data-services">???</a>), portals and documentation aimed at users (<a href="#user-portals">???</a>), and governance issues (<a href="#data-governance">???</a>). Each chapter starts with a brief statement of its purpose, followed by a description of what is implemented at present, as well as the planned developments for the short-term (&lt;2 years) and expected developments for the longer term (2-5 years).</p>
+<p>Practical guidelines for carrying out good <a href="#glossary-data-management">data management</a> are addressed in Chapter 6.</p>
+<p>The intended audience for this DMH is any personell involved in the process of making data available for the end user. This process can be viewed as a value chain that moves from the producer of the data to the data consumer (i.e., the end user). The process is further described in <a href="#value-chain">The data value chain</a> (<a href="#img-value-chain">???</a>).</p>
+<p>The handbook can be used in three ways:</p>
+<ol>
+<li>
+<p>Read <a href="#introduction">Introduction</a> to learn about the background and principles of <a href="#glossary-data-management">data management</a>;</p>
+</li>
+<li>
+<p>Read Chapters 2-5 to learn about how <a href="#glossary-data-management">data management</a> is currently implemented and how it is expected to evolve in the next few years; and</p>
+</li>
+<li>
+<p>Read <a href="#practical-guides">???</a> to find how-to’s and practical guidelines.</p>
+</li>
+</ol>
+<h2 id="the-principles-of-data-management-for-dynamic-geodata"><a class="header" href="#the-principles-of-data-management-for-dynamic-geodata">The principles of data management for dynamic geodata</a></h2>
+<p>Principles of standardised data documentation, publication, sharing and preservation have been formalised in the <a href="#glossary-fair-principles">FAIR</a> Guiding Principles for scientific data management and stewardship [<a href="https://www.nature.com/articles/sdata201618">RD3</a>] through a process facilitated by <a href="#force11">FORCE11</a>. FAIR stands for findability, accessibility, <a href="#glossary-interoperability">interoperability</a> and reusability.</p>
+<p>By following the <a href="#fair">FAIR</a> principles it is easier to obtain a common approach to <a href="#glossary-data-management">data management</a>, or a <a href="#glossary-unified-data-management">unified data management</a> model. One of the main motivations for implementing a <a href="#glossary-unified-data-management">unified data management</a> is to better serve the users of the data. Primarily, this can be approached by making user needs and requirements the guide for determining what data we provide and how. For example, it will be described below how the specification of <a href="#glossary-dataset">datasets</a> should be determined. By implementing the data management practices described here, it is expected that users will experience:</p>
+<ul>
+<li>
+<p>Ease of discovering, viewing and accessing <a href="#glossary-dataset">datasets</a>;</p>
+</li>
+<li>
+<p>Standardised ways of accessing data, including downloading or streaming data, with reduced need for special solutions on the user side;</p>
+</li>
+<li>
+<p>Reduced storage needs;</p>
+</li>
+<li>
+<p>Simple and standard access to remote <a href="#glossary-dataset">datasets</a> and catalogues, with own data visualisationl and analysis tools;</p>
+</li>
+<li>
+<p>Ability to compare and combine data from internal and external sources;</p>
+</li>
+<li>
+<p>Ability to apply common data transformations, like spatial, temporal and variables subsetting and reprojection, before downloading anything;</p>
+</li>
+<li>
+<p>Possibility to build specialized metadata catalogues and data portals targeting a specific user community.</p>
+</li>
+</ul>
+<h3 id="external-data-management-requirements-and-forcing-mechanisms"><a class="header" href="#external-data-management-requirements-and-forcing-mechanisms">External data management requirements and forcing mechanisms</a></h3>
+<p>Any organisation that strives to implement <a href="#glossary-fair-principles">FAIR</a> data management model has to relate to external forcing mechanisms concerning <a href="#glossary-data-management">data management</a> at several levels. At the national level, the organisation must comply with national regulations as decided by the government. Some of these are indications of expected behaviour (e.g., <a href="#oecd">OECD</a> regulations) and some are implemented through a legal framework. The Norwegian government has over time promoted free and open sharing of public data. Mechanisms for how to do this are governed by the <a href="#glossary-geodataloven">Geodataloven</a> (implemented as <a href="#glossary-geonorge">Geonorge</a>), which is a national implementation of the European <a href="#inspire">INSPIRE directive</a> (to be amended in 2019). <a href="#inspire">INSPIRE</a> defines a federated multinational <a href="#glossary-spatial-data-infrastructure">Spatial Data Infrastructure</a> (<a href="#sdi">SDI</a>) for the European Union, similar to <a href="#nsdi">NSDI</a> in the USA or <a href="#unsdi">UNSDI</a> under the United Nations. The goal is to provide a standardised access to data and provide the necessary tools to be able to work with the data in a unified manner. In short, these legal frameworks require standardised documentation (at discovery and use level; these concepts are described later) and access (through specified protocols) to the data identified.</p>
+<p>Other external requirements and forcing mechanisms that are organisation-specific are provided in <a href="#specialized-external-requirements">???</a>.</p>
+<h3 id="the-data-value-chain"><a class="header" href="#the-data-value-chain">The data value chain</a></h3>
+<p>The process of getting the data from the data producer to the consumer can be viewed as a value chain. An example of a data value chain is presented in <a href="#img-value-chain">???</a>. Typically, data from a wide variety of providers are used in the value chain. Traditionally, the data used have been transmitted on request from one <a href="#glossary-data-centre">data centre</a> to another, and used in the specific processing chains that requested the data. The focus on reuse of data in various contexts has been missing.</p>
+<p><img src="value_chain.png" alt="Value chain for data." /></p>
+<p>Datasets and metadata are what travels through the value chain. At the end of the <a href="#glossary-data-management">data management</a> value chain are the data consumers.</p>
+<h3 id="dataset"><a class="header" href="#dataset">Dataset</a></h3>
+<p>A <a href="#glossary-dataset">dataset</a> is a collection of data. In the context of the <a href="#glossary-data-management">data management</a> model, the storage mode of the <a href="#glossary-dataset">dataset</a> is irrelevant, since access mechanisms can be decoupled from the storage layer as experienced by a data consumer. Typically, a <a href="#glossary-dataset">dataset</a> represents a number of variables in time and space. A more detailed definition is provided in the <a href="#glossary-glossary">Glossary of Terms</a>. In order to best serve the data through <a href="#web-service">web services</a>, the following principles are useful for guiding the <a href="#glossary-dataset">dataset</a> definition:</p>
+<ol>
+<li>
+<p>A <a href="#glossary-dataset">dataset</a> can be a collection of variables stored in, for example, a relational database or as flat files;</p>
+</li>
+<li>
+<p>A <a href="#glossary-dataset">dataset</a> is defined as a number of spatial and/or temporal variables;</p>
+</li>
+<li>
+<p>A <a href="#glossary-dataset">dataset</a> should be defined by the information content and not the production method;</p>
+</li>
+<li>
+<p>A good <a href="#glossary-dataset">dataset</a> does not mix <a href="#glossary-feature-type">feature types</a>, i.e., trajectories and gridded data should not be present in the same <a href="#glossary-dataset">dataset</a>.</p>
+</li>
+</ol>
+<p>Point 3 implies that the output of, e.g., a numerical model may be divided into several <a href="#glossary-dataset">datasets</a> that are related. This is also important in order to efficiently serve the data through <a href="#glossary-webservice">web services</a>. For instance, model variables defined on different vertical coordinates should be separated as <a href="#glossary-linked-data">linked datasets</a>, since some <a href="#ogc">OGC</a> services (e.g., <a href="#wms">WMS</a>) are unable to handle mixed coordinates in the same <a href="#glossary-dataset">dataset</a>. One important linked dataset relation is the parent-child relationship. In the numerical model example, the parent dataset would be the model simulation. This (parent) dataset encompasses all datasets created by the model simulation such as, e.g., two NetCDF-CF files (child datasets) with different information content.</p>
+<p>Most importantly, a <a href="#glossary-dataset">dataset</a> should be defined to meet the consumer needs. This means that the specification of a <a href="#glossary-dataset">dataset</a> should follow not only the content guidelines just listed, but also address the consumer needs for data delivery, security and preservation.</p>
+<h3 id="metadata"><a class="header" href="#metadata">Metadata</a></h3>
+<p>Metadata is a broad concept. In our <a href="#glossary-data-management">data management</a> model the term &quot;metadata&quot; is used in several contexts, specifically the five categories that are briefly described in <a href="#table-metadata">table_title</a>.</p>
+<table><caption>Brief introduction to different types of metadata.</caption><colgroup><col style="width: 100%" /></colgroup><tbody><tr class="odd"><td><p>Type</p></td></tr><tr class="even"><td><p>Purpose</p></td></tr><tr class="odd"><td><p>Description</p></td></tr><tr class="even"><td><p>Examples</p></td></tr><tr class="odd"><td><p>Discovery metadata</p></td></tr><tr class="even"><td><p>Used to find relevant data</p></td></tr><tr class="odd"><td><p>Discovery metadata are also called index metadata and are a digital version of the library index card. They describe who did what, where and when, how to access data and potential constraints on the data. They shall also link to further information on the data, such as <a href="#site-metadata">site metadata</a>.</p></td></tr><tr class="even"><td><p><a href="#ISO-19115">ISO 19115</a><br />
+<a href="#gcmd">GCMD</a>/<a href="#dif">DIF</a></p></td></tr><tr class="odd"><td><p>Use metadata</p></td></tr><tr class="even"><td><p>Used to understand data found</p></td></tr><tr class="odd"><td><p>Use metadata describes the actual content of a <a href="#glossary-dataset">dataset</a> and how it is encoded. The purpose is to enable the user to understand the data without any further communication. They describe the content of variables using standardised vocabularies, units of variables, encoding of missing values, map projections, etc.</p></td></tr><tr class="even"><td><p><a href="#cf">Climate and Forecast (CF) Convention</a><br />
+<a href="#bufr">BUFR</a><br />
+<a href="#grib">GRIB</a></p></td></tr><tr class="odd"><td><p>Site metadata</p></td></tr><tr class="even"><td><p>Used to understand data found</p></td></tr><tr class="odd"><td><p>Site metadata are used to describe the context of observational data. They describe the location of an observation, the instrumentation, procedures, etc. To a certain extent they overlap with <a href="#discovery-metadata">discovery metadata</a>, but also extend discovery metadata. Site metadata can be used for observation network design. Site metadata can be considered a type of <a href="#use-metadata">use metadata</a>.</p></td></tr><tr class="even"><td><p><a href="#wigos">WIGOS</a><br />
+<a href="#ogc-om">OGC O&amp;M</a></p></td></tr><tr class="odd"><td><p>Configuration metadata</p></td></tr><tr class="even"><td><p>Used to tune portal services for <a href="#glossary-dataset">datasets</a> intended for data consumers (e.g., WMS)</p></td></tr><tr class="odd"><td><p>Configuration metadata are used to improve the services offered through a portal to the user community. This can, e.g., be how to best visualise a <a href="#glossary-product">product</a>.</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>System metadata</p></td></tr><tr class="even"><td><p>Used to understand the technical structure of the <a href="#glossary-data-management">data management</a> system and track changes in it</p></td></tr><tr class="odd"><td><p>System metadata covers, e.g., technical details of the storage system, <a href="#glossary-web-service">web services</a>, their purpose and how they interact with other components of the <a href="#glossary-data-management">data management</a> system, available and consumed storage, number of users and other KPI elements etc.</p></td></tr><tr class="even"><td></td></tr></tbody></table>
+<p>The tools and facilities used to manage the information for efficient discovery and use are further described in <a href="#structuring-and-documenting">???</a>.</p>
+<h3 id="a-data-management-model-based-on-the-fair-principles"><a class="header" href="#a-data-management-model-based-on-the-fair-principles">A data management model based on the FAIR principles</a></h3>
+<p>The <a href="#glossary-data-management">data management</a> model is built upon the following principles:</p>
+<ul>
+<li>
+<p><strong>Standardisation</strong> – compliance with established international standards;</p>
+</li>
+<li>
+<p><strong><a href="#glossary-interoperability">Interoperability</a></strong> – enabling machine-to-machine interfaces including standardised documentation and encoding of data;</p>
+</li>
+<li>
+<p><strong>Integrity</strong> – ensuring that data and data access can be maintained over time, and ensuring that the consumer receives the same data at any time of request;</p>
+</li>
+<li>
+<p><strong>Traceability</strong> – documentation of the <a href="#glossary-data-provenance">provenance</a> of a <a href="#glossary-dataset">dataset</a>, i.e., all actions taken to produce and maintain the <a href="#glossary-dataset">dataset</a> and the usage of the data in downstream systems;</p>
+</li>
+<li>
+<p><strong>Modularisation</strong> – enabling replacement of one component of the system without necessitating other changes.</p>
+</li>
+</ul>
+<p>The model’s basic functions fall into three main categories:</p>
+<ol>
+<li>
+<p><strong>Documentation of data</strong> using <a href="#glossary-discovery-metadata">discovery</a> and <a href="#glossary-use-metadata">use metadata</a>. The documentation identifies who, what, when, where, and how, and shall make it easy for consumers to find and understand data. This requires application of information containers and utilisation of <a href="#glossary-controlled-vocabulary">controlled vocabularies</a> and <a href="#glossary-ontology">ontologies</a> where textual representation is required. It also covers the topic of <a href="#glossary-data-provenance">data provenance</a> which is used to describe the origin and all actions done on a <a href="#glossary-dataset">dataset</a>. <a href="#glossary-data-provenance">Data provenance</a> is closely linked with <a href="#glossary-workflow-management">workflow management</a>. Furthermore, it covers the relationship between <a href="#glossary-dataset">datasets</a>. Application of <a href="#glossary-ontology">ontologies</a> in data documentation is closely linked to the concept of <a href="#glossary-linked-data">linked data</a>.</p>
+</li>
+<li>
+<p><strong>Publication and sharing of data</strong> focuses on making data accessible to consumers internally and externally. Application of standardised approaches is vital, along with cost effective solutions that are sustainable. Direct integration of data in applications for analysis through data streaming minimises the complexity and overhead in dissemination solutions. This category also covers persistent identifiers for data.</p>
+</li>
+<li>
+<p><strong>Preservation of data</strong> includes short and long term management of data, which secures access and availability throughout the lifespan of the data. Good solutions in this area depend on expected and actual usage of the data. Preservation of data includes the concept of data life cycle, i.e., the documented flow of data from initial storage through to obsolescence and permanent archiving (or deletion) and preserving the metadata for the same data (even after deleting).</p>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../dmh_content/chapters/sub_chapters/summary-requirements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../dmh_content/chapters/sub_chapters/summary-requirements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

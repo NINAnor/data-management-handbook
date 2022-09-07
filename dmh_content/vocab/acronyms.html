@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>List of acronyns - NINA&#x27;s data management handbook</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content=" ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Preliminary_comments</a></li><li class="chapter-item expanded affix "><li class="part-title">Core book</li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/introduction.html"><strong aria-hidden="true">1.</strong> Chapter 1: Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/summary-requirements.html"><strong aria-hidden="true">1.1.</strong> Summary of data management requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/structure-and-documenting.html"><strong aria-hidden="true">2.</strong> Chapter 2: Structuring and documenting data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/unknown/human-roles.html"><strong aria-hidden="true">2.1.</strong> Human roles in data management</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/data-services.html"><strong aria-hidden="true">3.</strong> Chapter 3: Data services</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/user-portals.html"><strong aria-hidden="true">4.</strong> Chapter 4: User portals and documentation</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/data-governance.html"><strong aria-hidden="true">5.</strong> Chapter 5: Data governance</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/practical-guide.html"><strong aria-hidden="true">6.</strong> Chapter 6: Practical guides</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/search_context.html"><strong aria-hidden="true">6.1.</strong> Using OpenSearch</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/acdd-elements.html"><strong aria-hidden="true">6.2.</strong> Creating NetCDF-CF files</a></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/sub_chapters/register-context.html"><strong aria-hidden="true">6.3.</strong> How to add NetCDF-CF data to thredds</a></li></ol></li><li class="chapter-item expanded "><a href="../../dmh_content/chapters/acknowledgements.html"><strong aria-hidden="true">7.</strong> Acknowledgements</a></li><li class="chapter-item expanded affix "><li class="part-title">Vocabulary</li><li class="chapter-item expanded "><a href="../../dmh_content/vocab/glossary.html"><strong aria-hidden="true">8.</strong> Glossary of terms and names</a></li><li class="chapter-item expanded "><a href="../../dmh_content/vocab/acronyms.html" class="active"><strong aria-hidden="true">9.</strong> List of acronyns</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="../../dmh_content/appendix/appendixA.html"><strong aria-hidden="true">10.</strong> Appendix A: list of referenced softwares & services</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Appendix B: Users of NINA's data</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">NINA&#x27;s data management handbook</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook/tree/master/guide" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook/edit/master/guide/src/dmh_content/vocab/acronyms.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="list-of-acronyms"><a class="header" href="#list-of-acronyms">List of Acronyms</a></h1>
+<p>This list contains acronyms used throughout the DMH. The column &quot;General/Specific&quot; indicates if the acronyms are used in the general part of the DMH (from the template) or if they are organisation specific.</p>
+<table><colgroup><col style="width: 100%" /></colgroup><tbody><tr class="odd"><td><p>Acronym</p></td></tr><tr class="even"><td><p>Meaning</p></td></tr><tr class="odd"><td><p>General/specific</p></td></tr><tr class="even"><td><p>ACDD</p></td></tr><tr class="odd"><td><p>Attribute Convention for Dataset Discovery <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">RD5</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ADC</p></td></tr><tr class="even"><td><p>Arctic Data Centre (<a href="https://pm.met.no/home">ADC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>AeN</p></td></tr><tr class="odd"><td><p>Arven etter Nansen (English: Nansen Legacy)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>BUFR</p></td></tr><tr class="even"><td><p>Binary Universal Form for the Representation of meteorological data. WMO standard format for binary data, particularly for non-gridded data (<a href="https://www.wmo.int/pages/prog/www/WDM/Guides/Guide-binary-1A.html">BUFR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>CDM</p></td></tr><tr class="odd"><td><p>Unidata Common Data Model (<a href="https://docs.unidata.ucar.edu/netcdf-java/current/userguide/common_data_model_overview.html">CDM</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>CF</p></td></tr><tr class="even"><td><p>Climate and Forecast Metadata Conventions (<a href="http://cfconventions.org/">CF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>CMS</p></td></tr><tr class="odd"><td><p>Content Management System</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>CSW</p></td></tr><tr class="even"><td><p>Catalog Service for the Web (<a href="https://www.ogc.org/standards/cat">CSW</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DAP</p></td></tr><tr class="odd"><td><p>Data access protocol (<a href="https://earthdata.nasa.gov/esdis/eso/standards-and-references/data-access-protocol-2">DAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DBMS</p></td></tr><tr class="even"><td><p>DataBase Management System (<a href="https://en.wikipedia.org/wiki/Database#Database_management_system">DBMS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DIANA</p></td></tr><tr class="odd"><td><p>Digital Analysis tool for visualisation of geodata, open source from MET Norway (<a href="https://github.com/metno/diana">DIANA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>diana-WMS</p></td></tr><tr class="even"><td><p>WMS implementation in DIANA</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DIAS</p></td></tr><tr class="odd"><td><p>Copernicus Data and Information Access Services (<a href="https://www.copernicus.eu/en/access-data/dias">DIAS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DIF</p></td></tr><tr class="even"><td><p>Directory Interchange Format of GCMD (<a href="https://earthdata.nasa.gov/esdis/eso/standards-and-references/directory-interchange-format-dif-standard">DIF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DLM</p></td></tr><tr class="odd"><td><p>Data life cycle management (<a href="https://searchstorage.techtarget.com/definition/data-life-cycle-management">DLM</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DM</p></td></tr><tr class="even"><td><p>Data Manager</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DMH</p></td></tr><tr class="odd"><td><p>Data Management Handbook (this document)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DMCG</p></td></tr><tr class="even"><td><p>Data Management Coordination Group</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>DMP</p></td></tr><tr class="odd"><td><p>Data Management Plan (<a href="https://en.wikipedia.org/wiki/Data_management_plan">DMP definition</a>, <a href="https://www.sigma2.no/data-planning">easyDMP tool</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>DOI</p></td></tr><tr class="even"><td><p>Digital Object Identifier (<a href="https://www.doi.org/index.html">DOI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>eduGAIN</p></td></tr><tr class="odd"><td><p>The Global Academic Interfederation Service (<a href="https://edugain.org/">eduGAIN</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ENVRI</p></td></tr><tr class="even"><td><p>European Environmental Research Infrastructures (<a href="https://envri.eu/">ENVRI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ENVRI FAIR</p></td></tr><tr class="odd"><td><p>"Making the ENV RIs data services FAIR." A proposal to the EU’s Horizon 2020 call INFRAEOSC-04</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>EOSC</p></td></tr><tr class="even"><td><p>European Open Science Cloud (<a href="https://eosc-portal.eu/">EOSC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ERDDAP</p></td></tr><tr class="odd"><td><p>NOAA Environmental Research Division Data Access Protocol (<a href="https://coastwatch.pfeg.noaa.gov/erddap/index.html">ERDDAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ESA</p></td></tr><tr class="even"><td><p>European Space Agency (<a href="http://www.esa.int/">ESA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ESGF</p></td></tr><tr class="odd"><td><p>Earth System Grid Federation (<a href="https://esgf.llnl.gov/">ESGF</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>EWC</p></td></tr><tr class="even"><td><p>European Weather Cloud ()</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>FAIR</p></td></tr><tr class="odd"><td><p>Findability, Accessibility, Interoperability and Reusability <a href="https://www.nature.com/articles/sdata201618">RD3</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>FEIDE</p></td></tr><tr class="even"><td><p>Identity Federation of the Norwegian National Research and Education Network (UNINETT) (<a href="https://www.feide.no/">FEIDE</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>FFI</p></td></tr><tr class="odd"><td><p>Norwegian Defence Research Establishment (<a href="https://www.ffi.no/en">FFI</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>FORCE11</p></td></tr><tr class="even"><td><p>Future of Research Communication and e-Scholarship (<a href="https://www.force11.org/">FORCE11</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GCMD</p></td></tr><tr class="odd"><td><p>Global Change Master Directory (<a href="https://idn.ceos.org/">GCMD</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>GCW</p></td></tr><tr class="even"><td><p>Global Cryosphere Watch (<a href="https://globalcryospherewatch.org/">GCW</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GeoAccessNO</p></td></tr><tr class="odd"><td><p>An NFR-funded infrastructure project, 2015- (<a href="https://www.geoaccessno.no/">GeoAccessNO</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>GIS</p></td></tr><tr class="even"><td><p><a href="#glossary-geographic-information-system">Geographic Information System</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>GRIB</p></td></tr><tr class="odd"><td><p>GRIdded Binary or General Regularly-distributed Information in Binary form. WMO standard file format for gridded data (<a href="https://www.wmo.int/pages/prog/www/WDM/Guides/Guide-binary-2.html">GRIB</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>HDF, HDF5</p></td></tr><tr class="even"><td><p>Hierarchical Data Format (<a href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">HDF</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>Hyrax</p></td></tr><tr class="odd"><td><p>OPeNDAP 4 Data Server (<a href="https://www.opendap.org/software/hyrax-data-server">Hyrax</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>IMR</p></td></tr><tr class="even"><td><p>Institute of Marine Research (<a href="https://www.hi.no/en">IMR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>INSPIRE</p></td></tr><tr class="odd"><td><p>Infrastructure for Spatial Information in Europe (<a href="https://inspire.ec.europa.eu/">INSPIRE</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>ISO 19115</p></td></tr><tr class="even"><td><p>ISO standard for geospatial metadata (<a href="https://www.iso.org/standard/53798.html">ISO 19115-1:2014</a>).</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>IPY</p></td></tr><tr class="odd"><td><p>International Polar Year (<a href="https://public.wmo.int/en/bulletin/international-polar-year-2007-2008">IPY</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>JRCC</p></td></tr><tr class="even"><td><p>Joint Rescue Coordination centre (<a href="https://www.hovedredningssentralen.no/english/">Hovedredningssentralen</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>KDVH</p></td></tr><tr class="odd"><td><p>KlimaDataVareHus</p></td></tr><tr class="even"><td><p>Specific to METNorway</p></td></tr><tr class="odd"><td><p>KPI</p></td></tr><tr class="even"><td><p>Key Performance Indicator (<a href="https://en.wikipedia.org/wiki/Performance_indicator">KPI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>METCIM</p></td></tr><tr class="odd"><td><p>MET Norway Crisis and Incident Management (<a href="https://metcim.no/">METCIM</a>)</p></td></tr><tr class="even"><td><p>Specific to METNorway</p></td></tr><tr class="odd"><td><p>METSIS</p></td></tr><tr class="even"><td><p>MET Norway Scientific Information System</p></td></tr><tr class="odd"><td><p>Specific to METNorway</p></td></tr><tr class="even"><td><p>MMD</p></td></tr><tr class="odd"><td><p>Met.no Metadata Format <a href="https://github.com/metno/mmd">MMD</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>MOAI</p></td></tr><tr class="even"><td><p>Meta Open Archives Initiative server (<a href="https://github.com/infrae/moai">MOAI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>ncWMS</p></td></tr><tr class="odd"><td><p>WMS implementation for NetCDF files (<a href="https://reading-escience-centre.github.io/ncwms/">ncWMS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NERSC</p></td></tr><tr class="even"><td><p>Nansen Environmental and Remote Sensing Center (<a href="https://www.nersc.no/">NERSC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NetCDF</p></td></tr><tr class="odd"><td><p>Network Common Data Format (<a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NetCDF/CF</p></td></tr><tr class="even"><td><p>A common combination of <a href="#netcdf">NetCDF</a> file format with <a href="#cf">CF</a>-compliant attributes.</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NFR</p></td></tr><tr class="odd"><td><p>The Research Council of Norway (<a href="https://www.forskningsradet.no/en/">NFR</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NILU</p></td></tr><tr class="even"><td><p>Norwegian Institute for Air Research (<a href="https://www.nilu.no/Forsiden/tabid/41/language/en-GB/Default.aspx">NILU</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NIVA</p></td></tr><tr class="odd"><td><p>Norwegian Institute for Water Research (<a href="https://www.niva.no/en">NIVA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NMDC</p></td></tr><tr class="even"><td><p>Norwegian Marine Data Centre, NFR-supported infrastructure project 2013-2017 (<a href="https://nmdc.no/">NMDC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NorDataNet</p></td></tr><tr class="odd"><td><p>Norwegian Scientific Data Network, an NFR-funded project 2015-2020 (<a href="https://www.nordatanet.no/">NorDataNet</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>Norway Digital</p></td></tr><tr class="even"><td><p>Norwegian national spatial data infrastructure organisation (<a href="https://www.geonorge.no/en/infrastructure/norway-digital/">Norway Digital</a>). Norwegian: <a href="https://www.geonorge.no/Geodataarbeid/Norge-digitalt/">Norge digitalt</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NORMAP</p></td></tr><tr class="odd"><td><p>Norwegian Satellite Earth Observation Database for Marine and Polar Research, an NFR-funded project 2010-2016 (<a href="https://normap.nersc.no/">NORMAP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NRPA</p></td></tr><tr class="even"><td><p>Norwegian Radiation Protection Authority (<a href="https://dsa.no/en/">NRPA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NSDI</p></td></tr><tr class="odd"><td><p>National Spatial Data Infrastructure, USA (<a href="https://www.fgdc.gov/nsdi/nsdi.html">NSDI</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>NVE</p></td></tr><tr class="even"><td><p>Norwegian Water Resources and Energy Directorate (<a href="https://www.nve.no/english/">NVE</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>NWP</p></td></tr><tr class="odd"><td><p>Numerical Weather Prediction</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OAI-PMH</p></td></tr><tr class="even"><td><p>Open Archives Initiative - Protocol for Metadata Harvesting (<a href="https://www.openarchives.org/pmh/">OAI-PMH</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OAIS</p></td></tr><tr class="odd"><td><p>Open Archival Information System (<a href="https://en.wikipedia.org/wiki/Open_Archival_Information_System">OAIS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OCEANOTRON</p></td></tr><tr class="even"><td><p>Web server dedicated to the dissemination of ocean in situ observation data collections (<a href="https://forge.ifremer.fr/plugins/mediawiki/wiki/oceanotron/index.php/Oceanotron_description">OCEANOTRON</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OECD</p></td></tr><tr class="odd"><td><p>The organisation for Economic Co-operation and Developement. <a href="https://www.oecd.org/">OECD</a></p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OGC</p></td></tr><tr class="even"><td><p>Open Geospatial Consortium (<a href="https://www.ogc.org/">OGC</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OGC O&amp;M</p></td></tr><tr class="odd"><td><p>OGC Observations and Measurements standard (<a href="https://www.ogc.org/standards/om">OGC O&amp;M</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>OLA</p></td></tr><tr class="even"><td><p>Operational-level Agreement (<a href="https://en.wikipedia.org/wiki/Operational-level_agreement">OLA</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>OPeNDAP</p></td></tr><tr class="odd"><td><p>Open-source Project for a Network Data Access Protocol (<a href="https://www.opendap.org/">OPeNDAP</a>) - reference server implementation</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>PID</p></td></tr><tr class="even"><td><p>Persistent Identifier (<a href="https://en.wikipedia.org/wiki/Persistent_identifier">PID</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>RM-ODP</p></td></tr><tr class="odd"><td><p>Reference Model of Open Distributed Processing (<a href="https://en.wikipedia.org/wiki/RM-ODP">RM-ODP</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>PROV</p></td></tr><tr class="even"><td><p>A W3C Working Group on provenance and a Family of Documents (<a href="https://www.w3.org/TR/prov-overview/">PROV</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SAON</p></td></tr><tr class="odd"><td><p>Sustaining Arctic Observing Networks (<a href="https://iasc.info/data-observations/saon">SAON/IASC</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SDI</p></td></tr><tr class="even"><td><p><a href="#spatial-data-infrastructure">Spatial Data Infrastructure</a></p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SDN</p></td></tr><tr class="odd"><td><p><a href="https://www.seadatanet.org/">SeaDataNet</a>, Pan-European infrastructure for ocean &amp; marine data management</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SIOS</p></td></tr><tr class="even"><td><p>Svalbard Integrated Arctic Earth Observing System</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SIOS-KC</p></td></tr><tr class="odd"><td><p><a href="#sios">SIOS</a> Knowledge Centre, an NFR-supported project 2015-2018 (<a href="https://www.sios-svalbard.org/KnowledgeCentre">SIOS-KC</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SKOS</p></td></tr><tr class="even"><td><p>Simple Knowledge Organization System (<a href="https://www.w3.org/2004/02/skos/">SKOS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>SLA</p></td></tr><tr class="odd"><td><p>Service-level Agreement (<a href="https://en.wikipedia.org/wiki/Service-level_agreement">SLA</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>SolR</p></td></tr><tr class="even"><td><p>Apache Enterprise search server with a REST-like API (<a href="https://lucene.apache.org/solr/">SolR</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>StInfoSys</p></td></tr><tr class="odd"><td><p>MET Norway’s Station Information System</p></td></tr><tr class="even"><td><p>Specific to METnorway</p></td></tr><tr class="odd"><td><p>TDS</p></td></tr><tr class="even"><td><p>THREDDS Data Server (<a href="https://www.unidata.ucar.edu/software/tds/current/">TDS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>THREDDS</p></td></tr><tr class="odd"><td><p>Thematic Real-time Environmental Distributed Data Services</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>UNSDI</p></td></tr><tr class="even"><td><p>United Nations Spatial Data Infrastructure (<a href="https://en.wikipedia.org/wiki/United_Nations_Spatial_Data_Infrastructure">UNSDI</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>UUID</p></td></tr><tr class="odd"><td><p>Universally Unique Identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>W3C</p></td></tr><tr class="even"><td><p>World Wide Web Consortium (<a href="https://www.w3.org/">W3C</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WCS</p></td></tr><tr class="odd"><td><p>OGC Web Coverage Service (<a href="https://www.ogc.org/standards/wcs">WCS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WFS</p></td></tr><tr class="even"><td><p>OGC Web Feature Service (<a href="https://www.ogc.org/standards/wfs">WFS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WIGOS</p></td></tr><tr class="odd"><td><p>WMO Integrated Global Observing System (<a href="https://community.wmo.int/activity-areas/wigos">WIGOS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WIS</p></td></tr><tr class="even"><td><p>WMO Information System (<a href="https://community.wmo.int/activity-areas/wis">WIS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WMO</p></td></tr><tr class="odd"><td><p>World Meteorological Organisation (<a href="https://public.wmo.int/en">WMO</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>WMS</p></td></tr><tr class="even"><td><p>OGC Web Map Service (<a href="https://www.ogc.org/standards/wms">WMS</a>)</p></td></tr><tr class="odd"><td></td></tr><tr class="even"><td><p>WPS</p></td></tr><tr class="odd"><td><p>OGC Web Processing Service (<a href="https://www.ogc.org/standards/wps">WPS</a>)</p></td></tr><tr class="even"><td></td></tr><tr class="odd"><td><p>YOPP</p></td></tr><tr class="even"><td><p>Year of Polar Prediction (<a href="https://yopp.met.no/metadata_search">YOPP Data Portal</a>)</p></td></tr><tr class="odd"><td></td></tr></tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dmh_content/vocab/glossary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../dmh_content/appendix/appendixA.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dmh_content/vocab/glossary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../dmh_content/appendix/appendixA.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
