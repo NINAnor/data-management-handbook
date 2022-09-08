@@ -1,5 +1,4 @@
-Acknowledgements
-================
+# Acknowledgements
 
 At various stages during the writing of the first version of this handbook, we have solicited comments on the manuscript from coworkers at MET Norway (in alphabetical order): Åsmund Bakketun, Arild Burud, Lara Ferrighi, Håvard Futsæter and Nina Larsgård. Their comments and advice are gratefully acknowledged. In addition, we thank members of the top management at MET Norway, including Lars-Anders Breivik, Bård Fjukstad, Jørn Kristensen, Anne-Cecilie Riiser, Roar Skålin and Cecilie Stenersen, who have provided valuable criticism and advice.
 

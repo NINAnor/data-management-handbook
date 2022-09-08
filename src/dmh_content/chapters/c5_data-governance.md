@@ -1,8 +1,7 @@
-Data Governance
-===============
+# 5. Data Governance
 
-Purpose
--------
+
+## 5.1 Purpose
 
 This chapter describes how we organise and steer data management activities in order to ensure that:
 
@@ -18,8 +17,7 @@ These higher level aspects of data management are often referred to as data gove
 
 In this chapter we address many aspects of this definition, but a full description of data governance touches on management structures that are beyond the scope of this handbook.
 
-Data life cycle management
---------------------------
+## 5.2 Data life cycle management
 
 [Data life cycle management](#glossary-data-life-cycle-management) is steered by documentation describing how data generated or used in an activity will be handled throughout the lifetime of the activity and after the activity has been completed. This is living documentation that follows the activity and specifies what kind of data will be generated or acquired, how the data will be described, where the data will be stored, whether and how the data can be shared, and how the data will be retired (archived or deleted). The purpose of life cycle management is to safeguard the data, not just during their “active” period but also for future reuse of the data, and to facilitate cost-effective data handling.
 
@@ -33,8 +31,34 @@ This DMH recommends the following concepts of [life cycle management](#data-life
 
 The goal is that life cycle management information shall be readily available for every dataset managed by the institute. How these concepts are implemented are described in the subsections below.
 
-### Data Management Plan
+### 5.2.1 ata Management Plan
 
 A Data Management Plan ([DMP](#dmp)) is a document that describes textually how the [data life cycle management](#glossary-data-life-cycle-management) will be carried out for [datasets](#glossary-dataset) used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.
 
 Currently, agencies funding R&D (such as [NFR](#nfr) and the EU) do not strictly require a DMP from the start of any project. However, for projects in the geosciences, data management is an issue that must be addressed, and the agencies strongly recommend a DMP solution. For example, NFR publishes [guidelines](https://www.forskningsradet.no/en/Adviser-research-policy/open-science/open-access-to-research-data/) for the contents of a DMP, including links to tools (templates and online services); these guidelines are recommended for any data management project or activity and will in time become a requirement according to [NFR](#nfr).
+
+
+## 5.3 Data governance at [insert organisation here]
+
+### 5.3.1 Current implementation
+
+
+#### 5.3.1.1 Organisational Roles
+
+#### 5.3.1.2 Status DMH
+
+
+#### 5.3.1.3 Status Discovery metadata
+
+
+#### 5.3.1.3 Status DMP
+
+
+### 5.3.2 Planned developments in the near-term (< 2 years)
+
+Revise DMH annually or when needed.
+
+
+### 5.3.3 Expected evolution in the longer term (> 2 years)
+
+Revise DMH annually or when needed.

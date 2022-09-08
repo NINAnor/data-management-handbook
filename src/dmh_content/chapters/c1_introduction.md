@@ -1,5 +1,4 @@
-Introduction
-============
+# 1. Introduction
 
 The purpose of the Data Management Handbook ([DMH](#dmh)) is threefold:
 
@@ -29,8 +28,7 @@ The handbook can be used in three ways:
 
 3.  Read [???](#practical-guides) to find how-to’s and practical guidelines.
 
-The principles of data management for dynamic geodata
------------------------------------------------------
+## 1.1 The principles of data management for dynamic geodata
 
 Principles of standardised data documentation, publication, sharing and preservation have been formalised in the [FAIR](#glossary-fair-principles) Guiding Principles for scientific data management and stewardship \[[RD3](https://www.nature.com/articles/sdata201618)\] through a process facilitated by [FORCE11](#force11). FAIR stands for findability, accessibility, [interoperability](#glossary-interoperability) and reusability.
 
@@ -50,13 +48,13 @@ By following the [FAIR](#fair) principles it is easier to obtain a common approa
 
 -   Possibility to build specialized metadata catalogues and data portals targeting a specific user community.
 
-### External data management requirements and forcing mechanisms
+### 1.1.1 External data management requirements and forcing mechanisms
 
 Any organisation that strives to implement [FAIR](#glossary-fair-principles) data management model has to relate to external forcing mechanisms concerning [data management](#glossary-data-management) at several levels. At the national level, the organisation must comply with national regulations as decided by the government. Some of these are indications of expected behaviour (e.g., [OECD](#oecd) regulations) and some are implemented through a legal framework. The Norwegian government has over time promoted free and open sharing of public data. Mechanisms for how to do this are governed by the [Geodataloven](#glossary-geodataloven) (implemented as [Geonorge](#glossary-geonorge)), which is a national implementation of the European [INSPIRE directive](#inspire) (to be amended in 2019). [INSPIRE](#inspire) defines a federated multinational [Spatial Data Infrastructure](#glossary-spatial-data-infrastructure) ([SDI](#sdi)) for the European Union, similar to [NSDI](#nsdi) in the USA or [UNSDI](#unsdi) under the United Nations. The goal is to provide a standardised access to data and provide the necessary tools to be able to work with the data in a unified manner. In short, these legal frameworks require standardised documentation (at discovery and use level; these concepts are described later) and access (through specified protocols) to the data identified.
 
 Other external requirements and forcing mechanisms that are organisation-specific are provided in [???](#specialized-external-requirements).
 
-### The data value chain
+### 1.1.2 The data value chain
 
 The process of getting the data from the data producer to the consumer can be viewed as a value chain. An example of a data value chain is presented in [???](#img-value-chain). Typically, data from a wide variety of providers are used in the value chain. Traditionally, the data used have been transmitted on request from one [data centre](#glossary-data-centre) to another, and used in the specific processing chains that requested the data. The focus on reuse of data in various contexts has been missing.
 
@@ -64,7 +62,7 @@ The process of getting the data from the data producer to the consumer can be vi
 
 Datasets and metadata are what travels through the value chain. At the end of the [data management](#glossary-data-management) value chain are the data consumers.
 
-### Dataset
+### 1.1.3 Dataset
 
 A [dataset](#glossary-dataset) is a collection of data. In the context of the [data management](#glossary-data-management) model, the storage mode of the [dataset](#glossary-dataset) is irrelevant, since access mechanisms can be decoupled from the storage layer as experienced by a data consumer. Typically, a [dataset](#glossary-dataset) represents a number of variables in time and space. A more detailed definition is provided in the [Glossary of Terms](#glossary-glossary). In order to best serve the data through [web services](#web-service), the following principles are useful for guiding the [dataset](#glossary-dataset) definition:
 
@@ -80,7 +78,7 @@ Point 3 implies that the output of, e.g., a numerical model may be divided into 
 
 Most importantly, a [dataset](#glossary-dataset) should be defined to meet the consumer needs. This means that the specification of a [dataset](#glossary-dataset) should follow not only the content guidelines just listed, but also address the consumer needs for data delivery, security and preservation.
 
-### Metadata
+### 1.1.4 Metadata
 
 Metadata is a broad concept. In our [data management](#glossary-data-management) model the term "metadata" is used in several contexts, specifically the five categories that are briefly described in [table\_title](#table-metadata).
 
@@ -96,7 +94,7 @@ Metadata is a broad concept. In our [data management](#glossary-data-management)
 
 The tools and facilities used to manage the information for efficient discovery and use are further described in [???](#structuring-and-documenting).
 
-### A data management model based on the FAIR principles
+### 1.1.5 A data management model based on the FAIR principles
 
 The [data management](#glossary-data-management) model is built upon the following principles:
 
@@ -117,3 +115,163 @@ The model’s basic functions fall into three main categories:
 2.  **Publication and sharing of data** focuses on making data accessible to consumers internally and externally. Application of standardised approaches is vital, along with cost effective solutions that are sustainable. Direct integration of data in applications for analysis through data streaming minimises the complexity and overhead in dissemination solutions. This category also covers persistent identifiers for data.
 
 3.  **Preservation of data** includes short and long term management of data, which secures access and availability throughout the lifespan of the data. Good solutions in this area depend on expected and actual usage of the data. Preservation of data includes the concept of data life cycle, i.e., the documented flow of data from initial storage through to obsolescence and permanent archiving (or deletion) and preserving the metadata for the same data (even after deleting).
+
+## 1.2. Human roles in data management
+
+
+### 1.2.1 Context
+
+Data is processed and interpreted to generate knowledge (e.g., about the weather) for end users. The knowledge can be presented as information in the form of actual data, illustrations, text or other forms of communication. In this context, an illustration is a representation of data, whereas data means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).
+
+![Information to knowledge](../../assets/information-to-knowledge.png)
+
+> **Definition**
+>
+> Data here means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information, provenance, etc.; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).
+
+Advanced users typically consume some type of data in order to process and interpret it, and produce new knowledge, e.g., in the form of a new dataset or other information. The datasets can be organised in different levels, such as the [WMO WIGOS definition for levels of data](http://codes.wmo.int/wmdr/_SourceOfObservation). Less advanced users apply information based on data (e.g., an illustration) to make decisions (e.g., clothing adapted to the forecast weather).
+
+
+### 1.2.2 User definitions
+
+
+We define two types of users:
+
+1.  **Producers**: Those that create / produce data
+
+2.  **Consumers**: Those that consume data
+
+A consumer of one level of data is typically a producer of data at the next level. A user can both consume data and produce data, or just have one of these roles (e.g., at the start/end of the production chain).
+
+![Information to knowledge](../../assets/user-definitions.png)
+
+#### 1.2.2.1 Data consumers
+
+We split between three types of data consumers: (1) advanced, (2) intermediate, and (3) simple. These are defined below.
+
+##### 1.2.2.1.1 Advanced consumers
+
+Advanced consumers require information in the form of data and metadata (including provenance) to gain a full understanding of what data exists and how to use it (discovery and use metadata), and to automatize the generation of derived data (new knowledge generation), verification (of information), and validation of data products.
+
+Example questions:
+
+-   Need all historical weather data, that can be used to model / predict the weather in the future
+
+Specific consumers:
+
+-   Researcher (e.g., for climate projections within the "Klima i Norge 2100" research project)
+
+##### 1.2.2.1.2 Intermediate consumers
+
+Intermediate consumers need enough information to find data and understand if it can answer their question(s) (discovery and use metadata). Also, they often want to cross reference a dataset with another dataset or metadata for inter-comparative verification of information.
+
+Example questions:
+
+-   Is this observation a record / weather extreme (coldest, warmest, wettest)?
+
+-   What was the amount of rain in last month in a certain watershed?
+
+Specific consumers:
+
+-   Klimavakt (MET)
+
+-   Developer (app, website, control systems, machine learning, etc.)
+
+-   Energy sector (hydro, energy prices)
+
+-   External partners
+
+##### 1.2.2.1.3 Simple consumers
+
+Simple consumers do not have any prior knowledge about the data. Information in the form of text or illustrations is sufficient for their decision making. They do not need to understand either data or metadata, and they are most likely looking for answers to simple questions.
+
+Example questions:
+
+-   Will it be raining today?
+
+-   Can the event take place, or will the weather impeed it?
+
+-   When should I harvest my crops?
+
+Specific consumers:
+
+-   Event organizer
+
+-   Journalist
+
+-   Farmer, or other people who work with the land like tree planters
+
+> **Note**
+>
+> An advanced consumer may discover information pertaining a role as a simple consumer. Such a user may, for some reason, be interested in tracking the data in order to use it together with other data (interoperability) or to verify the information. Therefore, it is important to have provenance metadata pointing to the basic data source(s) also at the simplest information level.
+
+#### 1.2.2.2 Data producers
+
+A producer is an advanced consumer at one level of data that generate new information at a higher level. This new information could be in the form of actual data or simple information, such as an illustration or a text summary. It is essential that any information can be traced back to the source(s).
+
+#### 1.2.2.3 Data Management Roles
+
+Between the data providers and data consumers are the processes that manage and deliver the datasets (cf. [???](#img-value-chain)). A number of human roles may be defined with responsibilities that, together, ensure that these processes are carried out in accordance with the data management requirements of the organisation. The definition and filling of these roles depend heavily on the particular organisation, and each organisation must devise its own best solution.
+
+
+## 1.3 Introduction to the data management at (insert organisation name here)
+
+### 1.3.1 Background at (insert organsitation name here)
+
+
+### 1.3.2 External data management requirements and forcing mechanisms specific to (insert organisation name here)
+
+​
+### 1.3.3 Data Management roles at (insert organisation name here)
+
+
+## 1.4 Summary of data management requirements
+
+
+The data management regime described in this DMH follows the Arctic Data centre model and shall ensure that:
+
+1.  There are relevant metadata for all datasets, and both data and metadata are available in a form and in such a way that they can be utilised by both humans and machines
+
+    -   There are sufficient metadata for each dataset for both discovery and use purposes
+
+    -   Discovery metadata are indexed and can be retrieved from available services in a standard way and with standard protocols
+
+    -   There are interfaces for discovery, visualisation and download, as well as portals for human access, that operate seamlessly across institutions
+
+    -   The data are described in a relevant, standardised and managed vocabulary that supports machine-machine interfaces
+
+    -   Datasets have attached a unique and permanent identifier that enables traceability
+
+    -   Datasets have licensing that ensures free use and reuse wherever possible
+
+    -   Datasets are available for download in a standard form according to the FAIR guiding principles and through standard protocols that are accepted and utilised in the user environment
+
+    -   There are authentication and authorisation mechanisms that ensure access control to data with restrictions, and that are compatible with and coupled to relevant public authentication solutions (FEIDE, eduGAIN, Google, etc.)
+
+2.  There is an organisation that provides for the management of each dataset throughout its lifetime (life cycle management)
+
+    -   There is documentation that describes physical storage, lifetime of each dataset, degree of storage redundancy, metadata consistency methods, how dataset versioning is implemented and unique IDs to ensure traceability
+
+    -   The organisation provides seamless access to data from distributed data centres through various portals
+
+    -   The above and a business model at dataset level are described in a Data Management Plan (DMP)
+
+3.  There are services or tools that provide the following functionalities on the datasets:
+
+    -   Transformations
+
+        -   Subsetting
+
+        -   Slicing of gridded datasets to points, sections, profiles
+
+        -   Reprojection
+
+        -   Resampling
+
+        -   Reformatting
+
+    -   Visualisation (time series, mapping services, etc.)
+
+    -   Aggregation
+
+    -   Upload of new datasets (including enabling and configuring data access services)
