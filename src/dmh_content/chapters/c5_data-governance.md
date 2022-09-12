@@ -31,14 +31,14 @@ This DMH recommends the following concepts of [life cycle management](#data-life
 
 The goal is that life cycle management information shall be readily available for every dataset managed by the institute. How these concepts are implemented are described in the subsections below.
 
-### 5.2.1 ata Management Plan
+### 5.2.1 Data Management Plan
 
 A Data Management Plan ([DMP](#dmp)) is a document that describes textually how the [data life cycle management](#glossary-data-life-cycle-management) will be carried out for [datasets](#glossary-dataset) used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.
 
 Currently, agencies funding R&D (such as [NFR](#nfr) and the EU) do not strictly require a DMP from the start of any project. However, for projects in the geosciences, data management is an issue that must be addressed, and the agencies strongly recommend a DMP solution. For example, NFR publishes [guidelines](https://www.forskningsradet.no/en/Adviser-research-policy/open-science/open-access-to-research-data/) for the contents of a DMP, including links to tools (templates and online services); these guidelines are recommended for any data management project or activity and will in time become a requirement according to [NFR](#nfr).
 
 
-## 5.3 Data governance at [insert organisation here]
+## 5.3 Data governance at NINA
 
 ### 5.3.1 Current implementation
 
