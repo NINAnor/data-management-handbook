@@ -10,8 +10,8 @@ edition = "2021"
 [output.html]
 mathjax-support = true
 site-url = "/mdBook/"
-git-repository-url = "https://github.com/rust-lang/mdBook/tree/master/guide"
-edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"
+git-repository-url = "https://github.com/NINAnor/data-management-handbook"
+edit-url-template = "https://github.com/NINAnor/data-management-handbook/edit/main/{path}"
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [output.html.playground]
