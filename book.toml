@@ -1,7 +1,7 @@
 [book]
 title = "NINA's data management handbook"
 description = " "
-authors = ["Benjamin Cretois", "Matthew Grainger"]
+authors = ["Benjamin Cretois", "Francesco Frassinelli", "Matthew Grainger"]
 language = "en"
 
 [rust]
